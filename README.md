@@ -93,8 +93,8 @@ No environment variables are required. The deployed page remains a static sandbo
 
 ## Challenge material
 
-- [Submission package](submission/README.md)
-- [Production Lander 3 fidelity audit](submission/LANDER3_FIDELITY.md)
+- [Lander 5 submission package](submission/lander5/README.md)
+- [Production Lander 3 fidelity audit](submission/lander5/LANDER3_FIDELITY.md)
 - [Competition and implementation instructions](instructions.md)
 - [Benchmark protocol](docs/BENCHMARKING.md)
 - [Case-study working document](docs/CASE_STUDY.md)

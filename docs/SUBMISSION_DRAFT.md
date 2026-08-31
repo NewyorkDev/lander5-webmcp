@@ -1,6 +1,6 @@
 # Devpost submission draft
 
-> Archived benchmark-comparison draft. For the current full 57-question intake and updated 1,648-token complete-run evidence, use [`../submission/PROJECT_TEXT.md`](../submission/PROJECT_TEXT.md). Do not paste the older figures below into Devpost.
+> Archived benchmark-comparison draft. For the current full 57-question intake and updated 1,648-token complete-run evidence, use [`../submission/lander5/PROJECT_TEXT.md`](../submission/lander5/PROJECT_TEXT.md). Do not paste the older figures below into Devpost.
 
 Use this as organized source material for the Devpost **Project overview**, **Project details**, and **Additional information** sections. Confirm the exact field labels and limits in the saved submission form before pasting.
 

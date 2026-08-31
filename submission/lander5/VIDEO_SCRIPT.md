@@ -14,7 +14,7 @@ Show the public URL and discover all eight site tools.
 
 ## 0:45–1:25 — Full intake
 
-Have the agent use the complete scenario in `src/demo-scenario.js`, calculate the quote, choose the first time, and prepare the review.
+Have the agent use the complete scenario in `src/demo-scenario.js`, calculate the quote, choose the first time, and prepare the review. Read the matching narration from `VOICE_SCRIPT.md`.
 
 > This is not a short-form demo. We mapped 57 production question concepts, including contact and access, home condition, recurring intent, appliances, move readiness, partial cleaning, bathroom configuration, add-ons, allergies, products, and scheduling. Conditional answers are supplied when relevant.
 
@@ -30,7 +30,7 @@ Click **Approve reservation request**, ask the agent to retry with confirmation,
 
 ## 1:55–2:25 — Evidence
 
-Show `submission/LANDER3_FIDELITY.md` and the benchmark summary.
+Show `submission/lander5/LANDER3_FIDELITY.md` and the benchmark summary.
 
 > Twenty-five of twenty-five full-intake runs succeeded. The seven-call workflow measured about 1,648 estimated JSON input-and-output tokens. We publish the raw artifact and label this honestly as payload size, not billed model usage.
 

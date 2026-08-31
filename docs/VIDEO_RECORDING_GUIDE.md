@@ -1,6 +1,6 @@
 # Record the WebMCP demo on this Mac
 
-> Use the current full-intake narration and scenario in [`../submission/VIDEO_SCRIPT.md`](../submission/VIDEO_SCRIPT.md) and [`../src/demo-scenario.js`](../src/demo-scenario.js). Older metric examples later in this guide are retained only as historical notes.
+> Use the current full-intake narration and scenario in [`../submission/lander5/VIDEO_SCRIPT.md`](../submission/lander5/VIDEO_SCRIPT.md) and [`../src/demo-scenario.js`](../src/demo-scenario.js). Older metric examples later in this guide are retained only as historical notes.
 
 Claude is not required. Use ChatGPT's supported in-app browser if site tools are available there. Otherwise use the Chrome WebMCP path below, which has already been verified against the public deployment.
 

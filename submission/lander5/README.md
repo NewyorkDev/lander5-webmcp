@@ -1,6 +1,6 @@
 # Lander 5 submission package
 
-This folder is the paste-and-record package for the WebMCP Challenge Devpost submission.
+This project folder is the paste-and-record package for the Lander 5 WebMCP Challenge Devpost submission.
 
 ## Submission links
 
@@ -13,9 +13,10 @@ This folder is the paste-and-record package for the WebMCP Challenge Devpost sub
 - `PROJECT_TEXT.md`: organized Devpost copy.
 - `LANDER3_FIDELITY.md`: field-by-field proof that this is a real intake, not a short-form demo.
 - `TESTING.md`: exact judge and local verification instructions.
-- `VIDEO_SCRIPT.md`: a sub-three-minute recording script using the full intake.
-- `../artifacts/lander5-benchmark.json`: 25-run raw benchmark evidence.
-- `../docs/images/`: three submission screenshots after `npm run screenshots`.
+- `VOICE_SCRIPT.md`: the exact words to read aloud.
+- `VIDEO_SCRIPT.md`: the matching shot-by-shot recording guide.
+- `../../artifacts/lander5-benchmark.json`: 25-run raw benchmark evidence.
+- `../../docs/images/`: three submission screenshots after `npm run screenshots`.
 
 ## Remaining human account actions
 

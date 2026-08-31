@@ -48,4 +48,4 @@ After the challenge, a controlled production pilot can replace sandbox availabil
 
 # Additional information
 
-No login or credentials are required. See `submission/TESTING.md` for the exact judge flow and `submission/LANDER3_FIDELITY.md` for the production-intake audit.
+No login or credentials are required. See `submission/lander5/TESTING.md` for the exact judge flow and `submission/lander5/LANDER3_FIDELITY.md` for the production-intake audit.
