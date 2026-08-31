@@ -18,6 +18,52 @@ We turned a real cleaning company's AI-automated form into eight WebMCP tools, m
 - Source: https://github.com/NewyorkDev/lander5-webmcp
 - Video: **TODO — public YouTube URL under three minutes**
 
+# Project story
+
+## Inspiration
+
+I have been running Affordable Cleaning Today for four years. Our production quote form is not a hypothetical demo—it is part of a real business and is completed by customers approximately two or three times every day.
+
+Watching session recordings showed me a recurring problem: many customers, especially seniors and people who are less comfortable with computers, struggle with long online forms. They may understand exactly what cleaning they need, but navigating dozens of fields, conditional questions, and appointment steps can become the hardest part of asking for help.
+
+We had already automated the form for AI using traditional browser automation. That proved an agent could complete it, but the agent still had to behave like a person operating a browser: inspect the page, find controls, scroll, click, type, and recover when the interface changed. WebMCP gave us the opportunity to reimagine that interaction instead of merely automating more clicks.
+
+## What we built
+
+We took the real production cleaning intake and rebuilt it as Lander 5, a public WebMCP booking sandbox. An AI assistant can use eight structured tools to collect the cleaning details, calculate an estimate, find appointment options, select a time, and prepare an exact visible review.
+
+This is not a simplified lead form. We audited the production flow and represented 57 customer-facing question concepts, including conditional questions for appliances, move cleaning, partial cleaning, heavy conditions, bathrooms, add-ons, allergies, access, recurring service, and scheduling. We excluded payment because the company permits an initial appointment request without a card.
+
+The goal is simple: someone should be able to describe the cleaning they need conversationally and let an AI handle the tedious form work. The customer can still see and edit every answer and must personally approve the final review.
+
+## How we built it
+
+The human interface and all eight WebMCP tools use the same deterministic booking engine. This means agent actions immediately update the visible page, while human edits automatically invalidate stale quotes, appointment selections, reviews, and approvals.
+
+The workflow registers top-level imperative WebMCP tools for context, intake updates, quoting, availability, tentative selection, review, reservation requests, and status. The final action is idempotent and requires two independent signals: `confirmed: true` from the agent and a separate approval click from the customer.
+
+We kept the competition version isolated from the production business. It accepts no card information, charges no money, sends no customer notifications, and consumes no real appointment inventory. That makes it safe for judges and agents to test repeatedly.
+
+## Challenges we faced
+
+The first challenge was preserving the complexity of a real intake without producing a short-form demo that only looked faster because it asked fewer questions. We solved that by auditing the production source field by field and publishing a fidelity map of the 57 represented question concepts and every deliberate exclusion.
+
+The second challenge was maintaining meaningful human control. Removing form navigation should not allow an agent to silently change a Standard cleaning into a Deep cleaning or submit an outdated choice. Lander 5 therefore exposes the exact cleaning type, scope, estimate, and appointment time in a visible review, then fails closed until the person approves it.
+
+The third challenge was measurement. Browser events, page text, serialized tool payloads, model tokens, and end-to-end latency are different measurements. We labeled them separately and published the raw artifacts rather than presenting estimated JSON size as provider-billed model usage.
+
+## What we learned
+
+The biggest lesson is that agent-ready design is not simply about removing clicks. A useful website should give the agent a narrow and accurate contract while giving the person visibility, editability, and control over consequences.
+
+We also learned that WebMCP can make an existing real-world workflow easier without forcing the business to discard the human interface. People can still use the form normally, but customers who find forms difficult can receive structured assistance from an AI operating on the same visible state.
+
+## Results
+
+The complete sandbox workflow uses seven tool calls through reservation. Across 25 reproducible full-intake benchmark runs, all 25 succeeded. The complete run measured approximately 399 input plus 1,249 output JSON I/O tokens, for an estimated serialized payload footprint of 1,648 tokens. These figures are transparent JSON-size estimates, not provider-billed model tokens.
+
+For me, the most important result is more practical: a form used every day by a real cleaning company can become easier for customers who might otherwise struggle to complete it, while the business keeps its validation rules and the customer keeps the final say.
+
 # Project details
 
 Affordable Cleaning Today is a real cleaning company with a long production quote flow called Lander 3. Traditional browser automation can complete it, but it must rediscover controls, scroll, click, type, and recover when the interface changes.
