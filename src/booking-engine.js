@@ -192,6 +192,9 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
         state.review = {
           customer: { firstName: state.request.firstName, phoneEnding: String(state.request.phone).replace(/\D/g, '').slice(-4) },
           service: {
+            zipCode: state.request.zipCode,
+            contactPreference: state.request.contactPreference,
+            discoverySource: state.request.discoverySource,
             cleaningType: state.request.cleaningType,
             frequency: state.request.frequency,
             squareFeet: Number(state.request.squareFeet),

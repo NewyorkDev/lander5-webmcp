@@ -52,7 +52,9 @@ The person can edit any answer. Human edits invalidate stale quotes, slots, revi
 
 Lander 3's automation must drive a long form one control at a time. In our updated read-only reference run, interaction after page readiness took 14.525 seconds and generated 40 browser input/change/click events. Total runner time was 16.594 seconds. The final visible page contained an estimated 2,810 tokens of text, with a 56,590-token full-DOM size estimate.
 
-Lander 5 conveys the same versioned service scenario through six structured tool calls to the review boundary. In a native-WebMCP run against the public page, preparation after page readiness took 15.8 ms. The six calls contained approximately 158 input and 892 output tokens by serialized JSON-size estimate. Its token measurement is based on tool inputs and outputs, not the page DOM; repeated agent-driven measurements remain necessary before claiming a percentage improvement.
+Lander 5 conveys the same versioned service scenario through six structured tool calls to the review boundary. In a native-WebMCP run against the public page, preparation after page readiness took 20.5 ms. The updated six-call payload contains approximately 158 input and 900 output tokens by serialized JSON-size estimate. Its token measurement is based on tool inputs and outputs, not the page DOM; repeated agent-driven measurements remain necessary before claiming a percentage improvement.
+
+That aligned diagnostic used 85% fewer interaction operations—six WebMCP calls instead of forty browser events. Its 1,058-token estimated serialized tool-I/O footprint was 62.3% smaller than one final Lander 3 visible-text snapshot estimated at 2,810 tokens. We describe this as context footprint, not billed model usage.
 
 These are interaction-footprint estimates, not provider-billed model tokens. The repository publishes the raw artifacts and methodology so the distinction is auditable.
 

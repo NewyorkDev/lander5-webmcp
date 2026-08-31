@@ -50,7 +50,7 @@ The official video must be public on YouTube, include clear audio, and remain un
 
 **Say:**
 
-> In the aligned read-only comparison, Lander 3 took 14.525 seconds after page readiness and generated forty browser events. Native WebMCP prepared Lander 5 in six calls. We publish the raw data and label DOM-size, tool-payload, engine, browser, and model measurements separately instead of pretending they are interchangeable.
+> In the aligned read-only comparison, Lander 3 generated forty browser events. Native WebMCP prepared Lander 5 in six calls—eighty-five percent fewer interaction operations. Its structured input-and-output footprint was about sixty-two percent smaller than one final visible-text snapshot of Lander 3. We publish the raw data and keep these estimates separate from billed model tokens.
 
 ## 2:28–2:35 — Close
 

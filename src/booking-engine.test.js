@@ -35,6 +35,7 @@ describe('Lander 5 booking engine', () => {
     const engine = createBookingEngine();
     reachReview(engine);
     expect(engine.getState().review.service.cleaningType).toBe('standard');
+    expect(engine.getState().review.service.zipCode).toBe('34638');
     expect(() => engine.run('request_reservation', { confirmed: true })).toThrow(/Customer approval/);
   });
 
