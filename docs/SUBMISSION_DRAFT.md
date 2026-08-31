@@ -52,7 +52,7 @@ The person can edit any answer. Human edits invalidate stale quotes, slots, revi
 
 Lander 3's automation must drive a long form one control at a time. In our updated read-only reference run, interaction after page readiness took 14.695 seconds and generated 40 browser input/change/click events. Total runner time was 18.664 seconds. The final visible page contained an estimated 2,826 tokens of text, with a 56,292-token full-DOM size estimate.
 
-Lander 5 conveys the same versioned service scenario through six structured tool calls to the review boundary. In the first updated public rendered-page health run, preparation after page readiness took 18 ms. The six calls contained approximately 158 input and 892 output tokens by serialized JSON-size estimate. Its token measurement is based on tool inputs and outputs, not the page DOM; repeated supported-browser measurements remain necessary before claiming a percentage improvement.
+Lander 5 conveys the same versioned service scenario through six structured tool calls to the review boundary. In a native-WebMCP run against the public page, preparation after page readiness took 15.8 ms. The six calls contained approximately 158 input and 892 output tokens by serialized JSON-size estimate. Its token measurement is based on tool inputs and outputs, not the page DOM; repeated agent-driven measurements remain necessary before claiming a percentage improvement.
 
 These are interaction-footprint estimates, not provider-billed model tokens. The repository publishes the raw artifacts and methodology so the distinction is auditable.
 
@@ -122,7 +122,8 @@ No login or credentials are required.
 - [x] Visible open-source license
 - [x] Setup and testing instructions
 - [x] Clear documentation of pre-existing versus challenge work
-- [ ] Actual supported-browser WebMCP demo captured
+- [x] Native Chrome WebMCP discovery and execution verified against public URL
+- [ ] Natural-language ChatGPT in-app-browser or official-inspector demo captured
 - [ ] Public YouTube video with audio, under three minutes
 - [ ] Screenshots added to Devpost
 - [ ] Exact Devpost field limits checked

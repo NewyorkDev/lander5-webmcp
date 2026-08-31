@@ -35,7 +35,7 @@ Initial public revision: `9047e0c`
 | --- | ---: | ---: |
 | Current verified mode | Production-page Playwright health path | Rendered-page shared-engine health path |
 | Successful shared-scenario preparation | Yes | Yes |
-| Preparation interaction time | 14.695 seconds | 18 ms in one updated public rendered-page health run; 0.063 ms median engine time |
+| Preparation interaction time | 14.695 seconds | 15.8 ms in one native-WebMCP public run; 0.063 ms median engine time |
 | Interaction operations | 40 browser events | 6 structured tool calls |
 | Input/context footprint | 2,826-token visible-text estimate; 56,292-token full-DOM estimate | 158 estimated tool-input tokens |
 | Output footprint | Not separately available from DOM automation | 892 estimated tool-output tokens |
@@ -47,9 +47,11 @@ The aligned 25-run deterministic Lander 5 engine artifact reports 25/25 success.
 
 The current Lander 3 read-only artifact completed the same substantive service questionnaire in 14.695 seconds after page readiness, producing 40 captured browser events. It requested **Standard Clean** and did not silently switch to deep cleaning. The test-mode availability API returned zero openings, so it selected the site's waiting-list path and stopped before submission. No intake or appointment was created.
 
+Native browser verification is now complete. Chrome 151, launched with WebMCP enabled, discovered all eight tools from the public HTTPS page with `document.modelContext.getTools()`. The test executed the shared scenario using `document.modelContext.executeTool()`, confirmed that the requested and reviewed type remained `standard`, proved the reservation tool failed before the page approval, then completed the sandbox request after one visible approval click. It did not use the benchmark bridge.
+
 ## What is not proven yet
 
-- End-to-end WebMCP runs from the official supported AI browser.
+- A natural-language run from ChatGPT's in-app browser or the official inspector extension, including agent-reported tokens if exposed.
 - Comparable provider-reported model token usage for both paths.
 - Hosted-network median and p95 across at least 25 runs.
 - Public live URL and clean-browser verification.

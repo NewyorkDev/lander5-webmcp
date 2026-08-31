@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T05:47:25.721Z",
+  "browser": "Chrome 151 with --enable-blink-features=WebMCP",
+  "url": "https://newyorkdev.github.io/lander5-webmcp/",
+  "totalMs": 1233,
+  "prepareMs": 15.8,
+  "toolNames": [
+    "calculate_quote",
+    "find_available_slots",
+    "get_booking_context",
+    "get_booking_status",
+    "prepare_booking_review",
+    "request_reservation",
+    "select_tentative_slot",
+    "set_cleaning_request"
+  ],
+  "requestedCleaningType": "standard",
+  "automaticTypeChange": false,
+  "reviewCleaningType": "standard",
+  "preApprovalBlocked": true,
+  "finalReservation": {
+    "reference": "L5-142760",
+    "status": "sandbox_requested",
+    "slot": {
+      "id": "2026-09-01-am",
+      "date": "2026-09-01",
+      "window": "9:00–11:00 AM",
+      "team": "Cleaning professional",
+      "status": "available"
+    },
+    "cardOnFile": false,
+    "consumesProductionInventory": false
+  },
+  "methodology": "Discovered with document.modelContext.getTools() and invoked with document.modelContext.executeTool() on the public HTTPS page. Playwright controlled the tab and human approval click but did not call the benchmark bridge. No AI model inference was used in this verification."
+}

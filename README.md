@@ -56,6 +56,8 @@ npm run benchmark
 
 The benchmark writes a reviewable JSON artifact to `artifacts/lander5-benchmark.json`. See [the benchmark protocol](docs/BENCHMARKING.md) before comparing it with Lander 3. Estimated JSON tool-I/O tokens are not presented as billed model tokens.
 
+The repository also retains a native browser verification artifact. Chrome 151 discovered all eight tools on the public HTTPS page through `document.modelContext.getTools()` and invoked them through `document.modelContext.executeTool()`, including the blocked-before-approval and successful-after-approval cases.
+
 ## Claude Library integration
 
 The related local Claude Library has a `landerfive-webmcp-health` action. It opens the rendered page, invokes the shared tool engine through the explicitly labeled benchmark bridge, clicks the visible approval button, and verifies:

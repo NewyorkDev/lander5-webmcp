@@ -26,12 +26,15 @@ describe('Lander 5 booking engine', () => {
     const result = engine.run('calculate_quote');
     expect(result.quote.low).toBeGreaterThan(0);
     expect(result.quote.cardRequiredToReserve).toBe(false);
+    expect(result.quote.requestedCleaningType).toBe('standard');
+    expect(result.quote.automaticTypeChange).toBe(false);
     expect(engine.run('find_available_slots').slots.length).toBeGreaterThan(0);
   });
 
   it('fails closed before visible customer approval', () => {
     const engine = createBookingEngine();
     reachReview(engine);
+    expect(engine.getState().review.service.cleaningType).toBe('standard');
     expect(() => engine.run('request_reservation', { confirmed: true })).toThrow(/Customer approval/);
   });
 
