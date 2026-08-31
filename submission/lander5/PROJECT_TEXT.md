@@ -16,17 +16,19 @@ We turned a real cleaning company's AI-automated form into eight WebMCP tools, m
 
 - Live app: https://newyorkdev.github.io/lander5-webmcp/
 - Source: https://github.com/NewyorkDev/lander5-webmcp
-- Video: **TODO — public YouTube URL under three minutes**
+- Video: **TODO: public YouTube URL under three minutes**
 
 # Project story
 
 ## Inspiration
 
-I have been running Affordable Cleaning Today for four years. Our production quote form is not a hypothetical demo—it is part of a real business and is completed by customers approximately two or three times every day.
+I have been running Affordable Cleaning Today for four years. Our production quote form is not a hypothetical demo. It is part of a real business and customers complete it about two or three times every day.
 
 Watching session recordings showed me a recurring problem: many customers, especially seniors and people who are less comfortable with computers, struggle with long online forms. They may understand exactly what cleaning they need, but navigating dozens of fields, conditional questions, and appointment steps can become the hardest part of asking for help.
 
 We had already automated the form for AI using traditional browser automation. That proved an agent could complete it, but the agent still had to behave like a person operating a browser: inspect the page, find controls, scroll, click, type, and recover when the interface changed. WebMCP gave us the opportunity to reimagine that interaction instead of merely automating more clicks.
+
+That old automation was also how we tested the form ourselves. We used it to fill everything out and make sure the form still worked from beginning to end. When we saw WebMCP, we realized it could help us in two ways. It could help customers book a cleaning through an AI, and it could help our own team test the full form faster whenever we make a change.
 
 ## What we built
 
@@ -58,6 +60,8 @@ The biggest lesson is that agent-ready design is not simply about removing click
 
 We also learned that WebMCP can make an existing real-world workflow easier without forcing the business to discard the human interface. People can still use the form normally, but customers who find forms difficult can receive structured assistance from an AI operating on the same visible state.
 
+It can also make our internal testing much quicker. Instead of making browser automation find and click every field each time, we can run the same complete test scenarios through the WebMCP tools. If something breaks, it should be easier to see exactly where it happened. We can still test the visible form separately to make sure the regular customer experience works too.
+
 ## Results
 
 The complete sandbox workflow uses seven tool calls through reservation. Across 25 reproducible full-intake benchmark runs, all 25 succeeded. The complete run measured approximately 399 input plus 1,249 output JSON I/O tokens, for an estimated serialized payload footprint of 1,648 tokens. These figures are transparent JSON-size estimates, not provider-billed model tokens.
@@ -82,11 +86,11 @@ Both the human form and the eight WebMCP tools use one deterministic state engin
 
 Lander 5 is an isolated public sandbox. It accepts no card data, charges nothing, sends no customer notifications, and consumes no production appointment inventory. Its final action is idempotent and fails closed before visible human approval.
 
-In 25 reproducible full-intake runs, 25 succeeded. The median complete workflow used seven tool calls and approximately 399 input plus 1,249 output JSON I/O tokens. These are transparent serialized-payload estimates—not provider-billed model token claims. Raw results and methodology are included in the public repository.
+In 25 reproducible full-intake runs, 25 succeeded. The median complete workflow used seven tool calls and approximately 399 input plus 1,249 output JSON I/O tokens. These are transparent serialized-payload estimates, not provider-billed model token claims. Raw results and methodology are included in the public repository.
 
 ## What was built during the challenge
 
-The production Lander 3 page and its older visual browser automation existed before the challenge. Lander 5—the standalone public application, shared state engine, eight WebMCP tools, full-intake mapping, visible telemetry, human approval boundary, tests, benchmark artifacts, and submission materials—was built during the challenge.
+The production Lander 3 page and its older visual browser automation existed before the challenge. Lander 5, including the standalone public application, shared state engine, eight WebMCP tools, full-intake mapping, visible telemetry, human approval boundary, tests, benchmark artifacts, and submission materials, was built during the challenge.
 
 ## Biggest challenge
 
