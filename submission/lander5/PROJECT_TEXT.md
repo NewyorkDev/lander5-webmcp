@@ -10,7 +10,7 @@ A full cleaning quote and appointment intake where WebMCP handles the form work 
 
 ## Elevator pitch
 
-We took a real cleaning company’s production quote form—already automated for AI through traditional browser clicking and typing—and rebuilt the experience around WebMCP. Instead of repeatedly inspecting a long, changing page, an agent can use eight structured tools to complete the same full intake, calculate an estimate, find a time, and prepare a visible reservation review faster and more reliably. The customer can edit every answer and keeps the final say: no appointment request succeeds without their explicit approval.
+We turned a real cleaning company's AI-automated form into eight WebMCP tools, making full quote and booking intake faster and more reliable while keeping final approval in the customer's hands.
 
 ## Links
 
