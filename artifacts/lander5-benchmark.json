@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T05:28:11.325Z",
+  "system": "lander5-webmcp-engine",
+  "scenario": {
+    "id": "palm-beach-biweekly-standard",
+    "request": {
+      "firstName": "Health",
+      "phone": "3475952059",
+      "zipCode": "33401",
+      "cleaningType": "standard",
+      "frequency": "biweekly",
+      "squareFeet": 1800,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "condition": "average",
+      "pets": true,
+      "addOns": [
+        "oven"
+      ]
+    }
+  },
+  "methodology": {
+    "execution": "Direct invocation of the same deterministic domain engine used by registered WebMCP tools; excludes model inference and network latency.",
+    "tokenMetric": "Estimated JSON tool I/O tokens using ceil(serialized characters / 4). This is not provider-billed model usage.",
+    "comparisonRule": "Only compare with a Lander 3 run using the same scenario fields and test-mode safety contract."
+  },
+  "summary": {
+    "iterations": 25,
+    "successful": 25,
+    "medianElapsedMs": 0.088,
+    "p95ElapsedMs": 0.312,
+    "medianToolCalls": 7,
+    "medianEstimatedInputTokens": 70,
+    "medianEstimatedOutputTokens": 690
+  },
+  "runs": [
+    {
+      "iteration": 1,
+      "elapsedMs": 1.112,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 2,
+      "elapsedMs": 0.288,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 3,
+      "elapsedMs": 0.102,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 4,
+      "elapsedMs": 0.087,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 5,
+      "elapsedMs": 0.131,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 6,
+      "elapsedMs": 0.145,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 7,
+      "elapsedMs": 0.083,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 8,
+      "elapsedMs": 0.087,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 9,
+      "elapsedMs": 0.092,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 10,
+      "elapsedMs": 0.312,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 11,
+      "elapsedMs": 0.241,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 12,
+      "elapsedMs": 0.101,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 13,
+      "elapsedMs": 0.105,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 14,
+      "elapsedMs": 0.088,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 15,
+      "elapsedMs": 0.081,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 16,
+      "elapsedMs": 0.079,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 17,
+      "elapsedMs": 0.078,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 18,
+      "elapsedMs": 0.092,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 19,
+      "elapsedMs": 0.08,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 20,
+      "elapsedMs": 0.079,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 21,
+      "elapsedMs": 0.077,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 22,
+      "elapsedMs": 0.258,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 23,
+      "elapsedMs": 0.074,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 24,
+      "elapsedMs": 0.073,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    },
+    {
+      "iteration": 25,
+      "elapsedMs": 0.073,
+      "toolCalls": 7,
+      "estimatedInputTokens": 70,
+      "estimatedOutputTokens": 690,
+      "success": true,
+      "reference": "L5-528880"
+    }
+  ]
+}
