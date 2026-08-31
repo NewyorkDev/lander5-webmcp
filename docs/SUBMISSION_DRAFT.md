@@ -141,9 +141,9 @@ No login or credentials are required.
 - [ ] Saved Devpost draft reviewed against official rules
 - [ ] Final submit completed before September 3 at 1:00 PM Pacific / 4:00 PM Eastern
 
-### Credential-gated evaluation note
+### Model-evaluation scope note
 
-The prepared Claude natural-language evaluation currently cannot produce provider-token evidence because the local OAuth session returns `401 OAuth access token has expired`, despite `claude auth status` reporting that the account is logged in. Reauthenticate with `claude auth login` before rerunning it. The failed request reported zero input and output tokens and must not be included in benchmark results.
+Claude is not required for the project or submission. Claude Library appears only as historical integration evidence because the earlier Lander 3 automation lived there. Provider-reported model tokens are outside this deterministic study and should not delay the video or final submission.
 
 ## Source-of-truth reminder
 

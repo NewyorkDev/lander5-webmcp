@@ -297,12 +297,13 @@ The Lander 3 browser run is the control in the Lander 3 versus Lander 5 case stu
 
 These items require the entrant's authenticated account or a human recording decision; they are not evidence that the application itself is incomplete.
 
-1. Refresh the expired Claude Code OAuth session with `claude auth login`, then rerun the natural-language public-page evaluation using `chrome-devtools-mcp.json`. `claude auth status` can report `loggedIn: true` even when an actual request returns `401 OAuth access token has expired`, so authenticate by making a real request, not by trusting status alone.
-2. Record the workflow in `docs/DEMO_SCRIPT.md`. Keep the final cut below 2:50 to leave a safe margin under the strict three-minute limit.
-3. Upload the video publicly to YouTube, confirm audio and public playback in a logged-out window, and paste its URL into `docs/SUBMISSION_DRAFT.md` and Devpost.
-4. Add the strongest screenshots, confirm the live and repository links inside the saved Devpost draft, check the form's exact current character limits, and submit before the internal noon ET target.
+1. Record the workflow in `docs/DEMO_SCRIPT.md`. Keep the final cut below 2:50 to leave a safe margin under the strict three-minute limit.
+2. Upload the video publicly to YouTube, confirm audio and public playback in a logged-out window, and paste its URL into `docs/SUBMISSION_DRAFT.md` and Devpost.
+3. Add the strongest screenshots, confirm the live and repository links inside the saved Devpost draft, check the form's exact current character limits, and submit before the internal noon ET target.
 
-Do not delay submission solely for provider-reported token counts. The deterministic comparison is complete and reproducible; actual model-token usage is clearly labeled as pending and is not needed to demonstrate the WebMCP workflow. If it is added, report the model, agent environment, run count, prompt, input tokens, output tokens, cache tokens, and failures for both systems.
+Claude is not required for the competition, the WebMCP implementation, or the video. Its local library integration is retained only because it was part of the historical comparison requested by the project owner. Do not reactivate or purchase Claude for this submission.
+
+Do not delay submission for provider-reported token counts. The deterministic comparison is complete and reproducible; actual model-token usage is not needed to demonstrate the WebMCP workflow. If a future model study is added, report the model, agent environment, run count, prompt, input tokens, output tokens, cache tokens, and failures for both systems.
 
 ## Sources
 

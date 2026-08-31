@@ -1,6 +1,6 @@
 # Case study: structured site tools versus form-driving automation
 
-Status: **reproducible deterministic comparison complete; provider-token study pending**
+Status: **reproducible deterministic comparison complete**
 
 ## Question
 
@@ -55,8 +55,7 @@ Claude Library integration is also verified. The `landerfive-webmcp-health` acti
 
 ## What is not proven yet
 
-- A natural-language run from ChatGPT's in-app browser or the official inspector extension, including agent-reported tokens if exposed.
-- Comparable provider-reported model token usage for both paths.
+- Provider-reported model token usage for either path; this is outside the deterministic study and is not required for submission.
 - Hosted-network median and p95 across at least 25 runs.
 
 Do not turn the engine-time result into an end-to-end speed-reduction percentage, and do not describe the serialized-context estimate as provider-billed token savings. The published 85% operation reduction and 62.3% serialized-context reduction are valid only for their explicitly named boundaries.

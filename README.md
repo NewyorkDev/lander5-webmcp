@@ -69,6 +69,8 @@ The related local Claude Library has a `landerfive-webmcp-health` action. It ope
 
 Playwright driving the bridge is a health/measurement technique, not a claim that Playwright is a WebMCP client. The competition demo must also show discovery and invocation from an actual supported AI browser.
 
+This historical integration is optional evidence, not a runtime dependency. Claude is not required to run Lander 5, demonstrate WebMCP, or submit the project. For the competition recording, use [the video recording guide](docs/VIDEO_RECORDING_GUIDE.md).
+
 ## Deployment
 
 The repository includes a Vercel configuration. Import the public repository into Vercel or run:
