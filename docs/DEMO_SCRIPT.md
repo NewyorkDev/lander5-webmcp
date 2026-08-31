@@ -1,5 +1,7 @@
 # Demo script — target 2 minutes 35 seconds
 
+> Superseded by the full-intake script at [`../submission/VIDEO_SCRIPT.md`](../submission/VIDEO_SCRIPT.md).
+
 The official video must be public on YouTube, include clear audio, and remain under three minutes. Record at 1440p or 1080p with browser zoom high enough to read tool names and results.
 
 Claude is not required. See `docs/VIDEO_RECORDING_GUIDE.md` for the ChatGPT path and a verified Chrome-native fallback.
