@@ -132,6 +132,10 @@ No login or credentials are required.
 - [ ] Saved Devpost draft reviewed against official rules
 - [ ] Final submit completed before September 3 at 1:00 PM Pacific / 4:00 PM Eastern
 
+### Credential-gated evaluation note
+
+The prepared Claude natural-language evaluation currently cannot produce provider-token evidence because the local OAuth session returns `401 OAuth access token has expired`, despite `claude auth status` reporting that the account is logged in. Reauthenticate with `claude auth login` before rerunning it. The failed request reported zero input and output tokens and must not be included in benchmark results.
+
 ## Source-of-truth reminder
 
 The official rules require a working live URL, explanatory text, a public repository containing source/instructions and a visible open-source license, and a public YouTube demonstration under three minutes with audio. Judges may evaluate from the description, images, and video without running the project, so the submission must make the WebMCP behavior unmistakable.

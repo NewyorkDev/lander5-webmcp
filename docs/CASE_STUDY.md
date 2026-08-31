@@ -1,6 +1,6 @@
 # Case study: structured site tools versus form-driving automation
 
-Status: **working evidence; comparison not yet complete**
+Status: **reproducible deterministic comparison complete; provider-token study pending**
 
 ## Question
 
@@ -10,14 +10,14 @@ Can a cleaning customer and an AI assistant prepare a safe appointment request w
 
 ### Lander 3 control
 
-The existing production page is a comprehensive human form. Claude Library uses Playwright to locate controls, fill fields, submit test intake, open the booking continuation, enter a Stripe test card, and clean up the resulting test tentative.
+The existing production page is a comprehensive human form. Its historical Claude Library health path used Playwright to locate controls, fill fields, submit test intake, open the booking continuation, enter a Stripe test card, and clean up the resulting test tentative. For this study, the refreshed control runner uses the same current form but stops at the complete pre-submission review boundary, so it creates no intake, tentative, Stripe action, or booking.
 
 Safety evidence already verified in source:
 
 - the established test phone marks intake and tentatives `isTest: true`;
 - test tentatives are excluded when real availability is calculated;
 - the runner expires active test tentatives after the run;
-- the updated runner cannot report full success unless cleanup is verified with zero active test tentatives.
+- the updated full-completion runner cannot report success unless cleanup is verified with zero active test tentatives.
 
 Repeated completion benchmarks are paused until all Slack, admin-email, and customer-email paths are proven suppressed in test mode.
 
@@ -56,9 +56,8 @@ Native browser verification is now complete. Chrome 151, launched with WebMCP en
 - A natural-language run from ChatGPT's in-app browser or the official inspector extension, including agent-reported tokens if exposed.
 - Comparable provider-reported model token usage for both paths.
 - Hosted-network median and p95 across at least 25 runs.
-- Public live URL and clean-browser verification.
 
-No percentage speed or token-reduction claim should be published until these rows have comparable evidence.
+Do not turn the engine-time result into an end-to-end speed-reduction percentage, and do not describe the serialized-context estimate as provider-billed token savings. The published 85% operation reduction and 62.3% serialized-context reduction are valid only for their explicitly named boundaries.
 
 ## Expected mechanism
 

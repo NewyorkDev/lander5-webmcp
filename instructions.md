@@ -193,27 +193,22 @@ Reject or revise the concept when any of these are true:
 - The required polish cannot be completed before the internal deadline.
 - It creates legal, financial, medical, privacy, or safety risk that cannot be responsibly bounded.
 
-## Current leading concept: Proofboard (provisional, not approved yet)
+## Selected concept: Lander 5 — Cleaning at Conversation Speed
 
-Proofboard is a shared evidence-and-decision canvas. A human defines a decision, constraints, and weights; an agent adds options, claims, sources, contradictions, and missing-evidence flags directly to the same visual board. The human can pin facts, reject evidence, change weights, and approve the final decision brief.
+Lander 5 is a public experimental booking sandbox for Affordable Cleaning Today. It converts the substantive Lander 3 cleaning-quote workflow into eight structured WebMCP tools while keeping the same state visible and editable in a normal human interface. The agent can prepare an estimate and appointment request, but the final tool fails closed until the person approves the exact visible review.
 
-Potential WebMCP tools:
+The project is intentionally separated from production inventory, payments, and notifications. It models the owner's actual policy that a customer can initially request an appointment without placing a card on file.
 
-- `get_board_state`
-- `create_option`
-- `create_criterion`
-- `set_criterion_weight`
-- `add_claim`
-- `add_evidence`
-- `link_evidence_to_claim`
-- `mark_contradiction`
-- `identify_evidence_gaps`
-- `compare_options`
-- `draft_recommendation`
-- `request_decision_approval`
-- `export_decision_brief`
+### Competitive scorecard
 
-This concept remains provisional until it receives a documented competitive scorecard, collision check, three-minute demo script, and implementation-risk review.
+| Criterion | Working score | Evidence |
+| --- | ---: | --- |
+| WebMCP Leverage | 5/5 | Eight complementary top-level tools share one engine with the human UI; state invalidation, a visible review, and a two-signal approval boundary make WebMCP essential to the workflow. |
+| Execution | 4/5 | Public HTTPS deployment, human fallback, tests, native Chrome execution, reproducible artifacts, setup documentation, and an MIT license are complete. The recorded agent demo remains outstanding. |
+| Potential Impact | 4/5 | It improves a real cleaning company's existing quote journey and demonstrates a reusable pattern for appointment-based local services. Production integration is deliberately deferred for safety. |
+| Creativity & Ambition | 4/5 | It compares a maintained visual-form automation with a structured site-tool version using aligned inputs and publishes the measurement limits instead of presenting a synthetic demo as production. |
+
+This scorecard supports competitiveness, not just eligibility. The strongest differentiators to show in the video are shared human-agent state, the blocked pre-approval call, preservation of Standard Clean without an automatic deep-clean upgrade, and the measured comparison with the pre-existing form driver.
 
 ## Automation boundaries
 
@@ -263,40 +258,51 @@ The Lander 3 browser run is the control in the Lander 3 versus Lander 5 case stu
 
 ### Before implementation
 
-- [ ] Re-read current Official Rules and challenge Updates.
-- [ ] Confirm eligibility separately from competitiveness.
-- [ ] Document a 0–5 score for every judging criterion.
-- [ ] Check the Devpost gallery and official showcase for collisions.
-- [ ] Define a complete under-three-minute demo narrative.
-- [ ] Confirm all external data and assets can be legally used.
-- [ ] Identify the smallest complete product that can be deployed in time.
+- [x] Re-read current Official Rules and challenge Updates.
+- [x] Confirm eligibility separately from competitiveness.
+- [x] Document a 0–5 score for every judging criterion.
+- [x] Check the Devpost gallery and official showcase for collisions; gallery was unpublished at last check.
+- [x] Define a complete under-three-minute demo narrative.
+- [x] Confirm the implementation uses first-party code and ordinary system fonts, with no bundled third-party media.
+- [x] Identify and deploy the smallest complete product that demonstrates the full safe workflow.
 
 ### Before calling the app feature-complete
 
-- [ ] Every advertised workflow works through the human UI.
-- [ ] Every advertised agent workflow works through actual WebMCP tool calls.
-- [ ] WebMCP is registered from the top-level page.
-- [ ] Tools have strict schemas, accurate descriptions, useful results, and appropriate annotations.
-- [ ] Consequential actions have confirmation and visible results.
-- [ ] The non-WebMCP fallback remains functional.
-- [ ] Tests cover successful calls, invalid inputs, failed calls, stale state, and unsupported browsers.
-- [ ] The app has been tested in the exact judging environments available to us.
-- [ ] A fresh unauthenticated judge can reach and understand the demo.
+- [x] Every advertised workflow works through the human UI.
+- [x] Every advertised agent workflow works through actual native WebMCP tool calls in supported Chrome.
+- [x] WebMCP is registered from the top-level page.
+- [x] Tools have strict schemas, accurate descriptions, useful results, and appropriate annotations.
+- [x] Consequential actions have confirmation and visible results.
+- [x] The non-WebMCP fallback remains functional.
+- [x] Tests cover successful calls, invalid inputs, failed calls, stale state, approval, idempotency, and sandbox invariants.
+- [x] The app has been tested in Chrome 151 with WebMCP enabled; ChatGPT in-app-browser capture remains a submission task.
+- [x] A fresh unauthenticated judge can reach and understand the public demo.
 
 ### Before submission
 
-- [ ] Live URL works from a clean browser.
-- [ ] Public repository works and contains all required source and instructions.
-- [ ] Open-source license is present and detected by the repository host.
-- [ ] README explains setup, architecture, tool list, security model, and what was built during the challenge.
-- [ ] Commit history supports the project timeline.
+- [x] Live URL works from a clean browser and native WebMCP verification is preserved as an artifact.
+- [x] Public repository works and contains all required source and instructions.
+- [x] Open-source license is present and detected by the repository host.
+- [x] README explains setup, architecture, tool list, security model, and what was built during the challenge.
+- [x] Commit history supports the project timeline.
 - [ ] Public YouTube video is under three minutes and includes clear audio.
 - [ ] Video visibly demonstrates WebMCP actions, not merely ordinary UI or narration.
-- [ ] Devpost description answers every required question.
-- [ ] All submission material is in English.
-- [ ] No unlicensed music, trademarks, copyrighted assets, private data, or secrets appear.
+- [x] Devpost description draft answers every currently identified required question.
+- [x] All prepared submission material is in English.
+- [x] The repository and prepared demo use no unlicensed music, bundled third-party media, private data, or secrets.
 - [ ] All links are pasted into a saved Devpost draft and checked again.
 - [ ] Final submission is completed before the internal noon ET target.
+
+## Immediate remaining submission actions
+
+These items require the entrant's authenticated account or a human recording decision; they are not evidence that the application itself is incomplete.
+
+1. Refresh the expired Claude Code OAuth session with `claude auth login`, then rerun the natural-language public-page evaluation using `chrome-devtools-mcp.json`. `claude auth status` can report `loggedIn: true` even when an actual request returns `401 OAuth access token has expired`, so authenticate by making a real request, not by trusting status alone.
+2. Record the workflow in `docs/DEMO_SCRIPT.md`. Keep the final cut below 2:50 to leave a safe margin under the strict three-minute limit.
+3. Upload the video publicly to YouTube, confirm audio and public playback in a logged-out window, and paste its URL into `docs/SUBMISSION_DRAFT.md` and Devpost.
+4. Add the strongest screenshots, confirm the live and repository links inside the saved Devpost draft, check the form's exact current character limits, and submit before the internal noon ET target.
+
+Do not delay submission solely for provider-reported token counts. The deterministic comparison is complete and reproducible; actual model-token usage is clearly labeled as pending and is not needed to demonstrate the WebMCP workflow. If it is added, report the model, agent environment, run count, prompt, input tokens, output tokens, cache tokens, and failures for both systems.
 
 ## Sources
 
