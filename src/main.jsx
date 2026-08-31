@@ -67,7 +67,7 @@ function App() {
             <div className="grid two">
               <Field label="First name"><input value={request.firstName} onChange={(e) => update({ firstName: e.target.value })} placeholder="Jordan" /></Field>
               <Field label="Mobile phone"><input value={request.phone} onChange={(e) => update({ phone: e.target.value })} placeholder="(561) 555-0142" inputMode="tel" /></Field>
-              <Field label="Service ZIP"><input value={request.zipCode} onChange={(e) => update({ zipCode: e.target.value })} placeholder="33401" inputMode="numeric" maxLength="5" /></Field>
+              <Field label="Service ZIP"><input value={request.zipCode} onChange={(e) => update({ zipCode: e.target.value })} placeholder="34638" inputMode="numeric" maxLength="5" /></Field>
               <Field label="Home size"><div className="input-suffix"><input type="number" min="500" max="12000" value={request.squareFeet} onChange={(e) => update({ squareFeet: Number(e.target.value) })} /><span>sq ft</span></div></Field>
               <Field label="Cleaning type"><select value={request.cleaningType} onChange={(e) => update({ cleaningType: e.target.value })}><option value="standard">Standard cleaning</option><option value="deep">Deep cleaning</option><option value="move">Move-in / move-out</option></select></Field>
               <Field label="Frequency"><select value={request.frequency} onChange={(e) => update({ frequency: e.target.value })}><option value="one-time">One time</option><option value="weekly">Weekly</option><option value="biweekly">Every two weeks</option><option value="monthly">Monthly</option></select></Field>
@@ -119,7 +119,7 @@ function App() {
           </aside>
         </section>
       </main>
-      <footer><span>Lander 5 · WebMCP Challenge experiment</span><span>Affordable Cleaning Today · Palm Beach County</span></footer>
+      <footer><span>Lander 5 · WebMCP Challenge experiment</span><span>Affordable Cleaning Today · Florida</span></footer>
       <div className={notice ? 'toast visible' : 'toast'} role="status" onAnimationEnd={() => setNotice('')}>{notice}</div>
     </>
   );

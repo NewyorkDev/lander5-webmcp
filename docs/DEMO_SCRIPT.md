@@ -22,7 +22,7 @@ The official video must be public on YouTube, include clear audio, and remain un
 
 **Show:** Ask the agent to inspect tools, then give this prompt:
 
-> Prepare a one-time standard cleaning request for Health at 347-595-2059 in ZIP 34669: 1,400 square feet, 3 bedrooms, 2 bathrooms, one story, fair condition, medium dust, 2 occupants, no pets, no blinds, tile and hardwood floors, 9-foot ceiling fans, clear kitchen and bathroom surfaces, all other surfaces accessible, entire home, last professionally cleaned 3–6 months ago, no heavy cleaning, and 5 extra windows. Calculate the estimate, choose the first time, and prepare the review. Do not request the reservation yet.
+> Prepare a one-time standard cleaning request for Health at 347-595-2059 in ZIP 34638: 1,400 square feet, 3 bedrooms, 2 bathrooms, one story, fair condition, medium dust, 2 occupants, no pets, no blinds, tile and hardwood floors, 9-foot ceiling fans, clear kitchen and bathroom surfaces, all other surfaces accessible, entire home, last professionally cleaned 3–6 months ago, no heavy cleaning, and 5 extra windows. Calculate the estimate, choose the first time, and prepare the review. Do not request the reservation yet.
 
 **Say:**
 
@@ -50,7 +50,7 @@ The official video must be public on YouTube, include clear audio, and remain un
 
 **Say:**
 
-> In the aligned read-only comparison, Lander 3 took 14.695 seconds after page readiness and generated forty browser events. Native WebMCP prepared Lander 5 in six calls. We publish the raw data and label DOM-size, tool-payload, engine, browser, and model measurements separately instead of pretending they are interchangeable.
+> In the aligned read-only comparison, Lander 3 took 14.525 seconds after page readiness and generated forty browser events. Native WebMCP prepared Lander 5 in six calls. We publish the raw data and label DOM-size, tool-payload, engine, browser, and model measurements separately instead of pretending they are interchangeable.
 
 ## 2:28–2:35 — Close
 

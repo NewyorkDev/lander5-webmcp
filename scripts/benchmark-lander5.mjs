@@ -7,7 +7,7 @@ const outputArg = process.argv.find((arg) => arg.startsWith('--output='))?.split
 const scenario = {
   id: 'lander3-health-standard-v1',
   request: {
-    firstName: 'Health', phone: '3475952059', zipCode: '34669', contactPreference: 'text', discoverySource: 'google',
+    firstName: 'Health', phone: '3475952059', zipCode: '34638', contactPreference: 'text', discoverySource: 'google',
     cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
     pets: false, blinds: false, flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9,
     kitchenSurfaceReadiness: 'clear', bathroomSurfaceReadiness: 'clear', accessibleSurfaces: true,

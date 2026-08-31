@@ -5,22 +5,22 @@
   "scenarioId": "lander3-health-standard-v1",
   "cleanActRevision": "f9f191c787d566369c094f9f170cb1f0284e32e5",
   "success": true,
-  "durationMs": 18664,
+  "durationMs": 16594,
   "metrics": {
-    "preparationInteractionMs": 14695,
-    "visibleTextCharacters": 11303,
-    "visibleTextTokensEstimated": 2826,
-    "domCharacters": 225167,
-    "domTokensEstimated": 56292,
+    "preparationInteractionMs": 14525,
+    "visibleTextCharacters": 11239,
+    "visibleTextTokensEstimated": 2810,
+    "domCharacters": 226358,
+    "domTokensEstimated": 56590,
     "browserEvents": 40,
     "eventCounts": {
       "input": 10,
       "change": 10,
       "click": 20
     },
-    "recordedCheckpoints": 36,
+    "recordedCheckpoints": 34,
     "availabilityIsTest": true,
-    "availableSlots": 0,
+    "availableSlots": 1,
     "preparationComplete": true,
     "submissions": 0,
     "productionTentativesCreated": 0,
@@ -30,6 +30,6 @@
     "boundary": "Page ready through a complete, enabled pre-submission form state; stopped before intake submission.",
     "safety": "Used established test phone and test-mode availability response. Created no intake, tentative appointment, Stripe action, or booking.",
     "tokenMetric": "Visible-text and full-DOM size estimates use ceil(characters / 4). The deterministic Playwright runner used no model inference.",
-    "caveat": "The authoritative test-mode availability API returned zero openings, so the current waiting-list option was selected. This represents the site's valid pre-submission outcome for the shared scenario at run time."
+    "caveat": "The authoritative test-mode availability API returned one opening for ZIP 34638. The current first slot was selected deterministically and the run stopped before submission."
   }
 }

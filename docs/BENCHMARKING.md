@@ -6,7 +6,7 @@ This study measures whether a structured WebMCP path reduces interaction overhea
 
 - First name: Health
 - Test phone: 3475952059
-- ZIP: 34669
+- ZIP: 34638
 - Standard cleaning, one time
 - 1,400 square feet, 3 bedrooms, 2 bathrooms, one story
 - No pets, no blinds, tile and hardwood, 9-foot fan height

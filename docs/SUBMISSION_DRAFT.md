@@ -50,7 +50,7 @@ The person can edit any answer. Human edits invalidate stale quotes, slots, revi
 
 ### How it creates a better experience
 
-Lander 3's automation must drive a long form one control at a time. In our updated read-only reference run, interaction after page readiness took 14.695 seconds and generated 40 browser input/change/click events. Total runner time was 18.664 seconds. The final visible page contained an estimated 2,826 tokens of text, with a 56,292-token full-DOM size estimate.
+Lander 3's automation must drive a long form one control at a time. In our updated read-only reference run, interaction after page readiness took 14.525 seconds and generated 40 browser input/change/click events. Total runner time was 16.594 seconds. The final visible page contained an estimated 2,810 tokens of text, with a 56,590-token full-DOM size estimate.
 
 Lander 5 conveys the same versioned service scenario through six structured tool calls to the review boundary. In a native-WebMCP run against the public page, preparation after page readiness took 15.8 ms. The six calls contained approximately 158 input and 892 output tokens by serialized JSON-size estimate. Its token measurement is based on tool inputs and outputs, not the page DOM; repeated agent-driven measurements remain necessary before claiming a percentage improvement.
 
@@ -106,7 +106,7 @@ After the competition, the next step is a controlled production pilot. That woul
 
 1. Open the live URL in ChatGPT's in-app browser or Chrome 149+ with WebMCP enabled.
 2. Ask the agent to inspect the available tools and begin a cleaning request.
-3. Use a standard, one-time cleaning for ZIP 34669, 1,400 square feet, 3 bedrooms, and 2 bathrooms.
+3. Use a standard, one-time cleaning for ZIP 34638, 1,400 square feet, 3 bedrooms, and 2 bathrooms.
 4. Ask it to complete the home profile, calculate the quote, find times, select the first window, and prepare the review.
 5. Verify that `request_reservation` fails before approval.
 6. Click **Approve reservation request** in the page.

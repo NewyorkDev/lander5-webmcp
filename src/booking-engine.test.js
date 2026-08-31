@@ -3,7 +3,7 @@ import { createBookingEngine } from './booking-engine.js';
 import { installWebMcp, TOOL_DEFINITIONS } from './webmcp.js';
 
 const scenario = {
-  firstName: 'Health', phone: '3475952059', zipCode: '34669', contactPreference: 'text', discoverySource: 'google',
+  firstName: 'Health', phone: '3475952059', zipCode: '34638', contactPreference: 'text', discoverySource: 'google',
   cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
   condition: 'fair', dustLevel: 'medium', occupants: 2, pets: false, blinds: false,
   flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9, kitchenSurfaceReadiness: 'clear',

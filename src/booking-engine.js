@@ -125,7 +125,7 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
           mode: 'experimental_sandbox',
           cardRequiredToReserve: false,
           rawCardDataAccepted: false,
-          supportedZipCodes: ['33401', '33403', '33404', '33405', '33406', '33407', '33408', '33409', '33410', '33411', '33412', '33413', '33414', '33415', '33417', '33418'],
+          supportedZipCodes: ['33556', '34637', '34638', '34639', '34652', '34653', '34654', '34655', '34667', '34668', '34669'],
           requiredToQuote: ['zipCode', 'cleaningType', 'frequency', 'squareFeet', 'condition'],
           requiredToReserve: ['firstName', 'phone', 'selectedSlotId', 'customer approval'],
           nextBestAction: state.quote ? (state.request.selectedSlotId ? 'prepare_booking_review' : 'find_available_slots') : 'set_cleaning_request',

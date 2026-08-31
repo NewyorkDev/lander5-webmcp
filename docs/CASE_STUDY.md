@@ -35,9 +35,9 @@ Initial public revision: `9047e0c`
 | --- | ---: | ---: |
 | Current verified mode | Production-page Playwright health path | Rendered-page shared-engine health path |
 | Successful shared-scenario preparation | Yes | Yes |
-| Preparation interaction time | 14.695 seconds | 15.8 ms in one native-WebMCP public run; 0.063 ms median engine time |
+| Preparation interaction time | 14.525 seconds | 15.8 ms in one native-WebMCP public run; updated shared-ZIP measurement pending |
 | Interaction operations | 40 browser events | 6 structured tool calls |
-| Input/context footprint | 2,826-token visible-text estimate; 56,292-token full-DOM estimate | 158 estimated tool-input tokens |
+| Input/context footprint | 2,810-token visible-text estimate; 56,590-token full-DOM estimate | Updated shared-ZIP measurement pending |
 | Output footprint | Not separately available from DOM automation | 892 estimated tool-output tokens |
 | Actual model tokens | Not captured | Not captured |
 | Production slots consumed | Test rows excluded, cleanup required | 0 by design |
@@ -45,7 +45,7 @@ Initial public revision: `9047e0c`
 
 The aligned 25-run deterministic Lander 5 engine artifact reports 25/25 success. To the same pre-submission review boundary it uses six calls, with a 0.063 ms median and 0.291 ms p95 on the development machine. The full sandbox request uses seven calls, with a 0.110 ms median and 0.353 ms p95. These engine-only timings exclude rendering, networking, and model inference and must not be compared directly with Lander 3’s browser duration.
 
-The current Lander 3 read-only artifact completed the same substantive service questionnaire in 14.695 seconds after page readiness, producing 40 captured browser events. It requested **Standard Clean** and did not silently switch to deep cleaning. The test-mode availability API returned zero openings, so it selected the site's waiting-list path and stopped before submission. No intake or appointment was created.
+The current Lander 3 read-only artifact completed the same substantive service questionnaire in 14.525 seconds after page readiness, producing 40 captured browser events. It requested **Standard Clean** and did not silently switch to deep cleaning. The test-mode availability API returned one opening for ZIP 34638, the runner selected the first slot deterministically, and it stopped before submission. No intake or appointment was created.
 
 Native browser verification is now complete. Chrome 151, launched with WebMCP enabled, discovered all eight tools from the public HTTPS page with `document.modelContext.getTools()`. The test executed the shared scenario using `document.modelContext.executeTool()`, confirmed that the requested and reviewed type remained `standard`, proved the reservation tool failed before the page approval, then completed the sandbox request after one visible approval click. It did not use the benchmark bridge.
 
