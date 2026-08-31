@@ -35,7 +35,7 @@ Initial public revision: `9047e0c`
 | --- | ---: | ---: |
 | Current verified mode | Production-page Playwright health path | Rendered-page shared-engine health path |
 | Successful shared-scenario preparation | Yes | Yes |
-| Preparation interaction time | 14.525 seconds | 20.5 ms in one native-WebMCP public run; 0.064 ms median engine time |
+| Preparation interaction time | 14.525 seconds | 15.7 ms in one native-WebMCP public run; 0.064 ms median engine time |
 | Interaction operations | 40 browser events | 6 structured tool calls |
 | Input/context footprint | 2,810-token visible-text estimate; 56,590-token full-DOM estimate | 158 estimated tool-input tokens |
 | Output footprint | Not separately available from DOM automation | 900 estimated tool-output tokens |
