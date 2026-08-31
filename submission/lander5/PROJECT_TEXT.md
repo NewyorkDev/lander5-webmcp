@@ -16,7 +16,7 @@ We turned a real cleaning company's AI-automated form into eight WebMCP tools, m
 
 - Live app: https://newyorkdev.github.io/lander5-webmcp/
 - Source: https://github.com/NewyorkDev/lander5-webmcp
-- Video: **TODO: public YouTube URL under three minutes**
+- Video: https://www.youtube.com/watch?v=bxGHJsYYshw
 
 ## Built with
 
