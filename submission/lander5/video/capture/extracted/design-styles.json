@@ -1,0 +1,222 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Fraunces",
+      "fontSize": "76px",
+      "fontWeight": "700",
+      "lineHeight": "75.24px",
+      "letterSpacing": "-3.42px",
+      "color": "#12372A",
+      "sampleText": "A cleaning request that works at conversation speed."
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Fraunces",
+      "fontSize": "28px",
+      "fontWeight": "700",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.56px",
+      "color": "#12372A",
+      "sampleText": "Tell us about the visit"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Fraunces",
+      "fontSize": "25px",
+      "fontWeight": "700",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.5px",
+      "color": "#12372A",
+      "sampleText": "What the agent did"
+    },
+    {
+      "role": "body",
+      "fontFamily": "DM Sans",
+      "fontSize": "19px",
+      "fontWeight": "400",
+      "lineHeight": "31.35px",
+      "letterSpacing": "normal",
+      "color": "#53655F",
+      "sampleText": "Describe the home once. Your AI assistant can prepare the qu"
+    },
+    {
+      "role": "link",
+      "fontFamily": "DM Sans",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#12372A",
+      "sampleText": "ACTAffordable Cleaning Today"
+    },
+    {
+      "role": "label",
+      "fontFamily": "DM Sans",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#163028",
+      "sampleText": "First name"
+    },
+    {
+      "role": "code",
+      "fontFamily": "monospace",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "color": "#D9F99D",
+      "sampleText": "ready for your request"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      4,
+      7,
+      8,
+      10,
+      11,
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      28,
+      32,
+      80
+    ],
+    "baseUnit": 4
+  },
+  "radius": [
+    "10px"
+  ],
+  "shadows": [
+    {
+      "value": "rgb(207, 227, 212) 12px 14px 0px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(24, 53, 43, 0.07) 0px 20px 60px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Calculate my estimate",
+      "background": "#12372A",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "14px 19px",
+      "borderRadius": "10px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "height": "49px"
+    },
+    {
+      "label": "Reset experiment",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#B14835",
+      "padding": "16px 0px 0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(177, 72, 53)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "height": "32px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#12372A",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "28px",
+      "borderRadius": "22px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "rgb(207, 227, 212) 12px 14px 0px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "200.594px"
+    },
+    {
+      "label": "card",
+      "background": "#FFFDF8",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#163028",
+      "padding": "32px",
+      "borderRadius": "24px",
+      "border": "1px solid rgb(222, 217, 205)",
+      "boxShadow": "rgba(24, 53, 43, 0.07) 0px 20px 60px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "4119px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#FFFDF8",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#163028",
+    "padding": "0px 370px",
+    "borderRadius": "0px",
+    "border": "",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "72px"
+  },
+  "chips": [
+    {
+      "label": "You can edit anything",
+      "background": "#EDF5EF",
+      "color": "#163028",
+      "padding": "7px 10px",
+      "borderRadius": "999px",
+      "border": "0px none rgb(22, 48, 40)",
+      "boxShadow": "none",
+      "fontSize": "11px",
+      "fontWeight": "400",
+      "height": "28px"
+    },
+    {
+      "label": "ACT",
+      "background": "#12372A",
+      "color": "#FFFFFF",
+      "padding": "0px",
+      "borderRadius": "50%",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "height": "38px"
+    },
+    {
+      "label": "✓ No card required",
+      "background": "#FFFDF8",
+      "color": "#163028",
+      "padding": "9px 13px",
+      "borderRadius": "999px",
+      "border": "1px solid rgb(216, 212, 201)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "height": "36px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [],
+  "glass": []
+}

@@ -1,0 +1,207 @@
+[span] ACT
+[span] Affordable Cleaning Today
+[div] Experimental sandbox · no real booking
+[p] Lander 5 · WebMCP experiment
+[h1] A cleaning request that works at conversation speed.
+[p] Describe the home once. Your AI assistant can prepare the quote and appointment options while every decision stays visible to you.
+[span] ✓ No card required
+[span] ✓ You approve before reserving
+[span] ✓ Sandbox only
+[strong] Agent-ready
+[p] Human form ready. WebMCP becomes available in a supported browser.
+[code] ready for your request
+[p] 01 · Cleaning details
+[h2] Tell us about the visit
+[span] You can edit anything
+[span] First name
+[span] Last name
+[span] Mobile phone
+[span] Email
+[span] Service ZIP
+[span] Service address
+[span] Apartment / suite
+[span] Gate code
+[span] Community name
+[span] Contact preference
+[option] Text message
+[option] Phone call
+[option] Email
+[span] How did you hear about us?
+[option] Google
+[option] Referral
+[option] Social media
+[option] Other
+[span] Availability text consent
+[option] Yes, text scheduling updates
+[option] No scheduling texts
+[span] Home size
+[span] sq ft
+[span] Cleaning type
+[option] Standard cleaning
+[option] Deep cleaning
+[option] Move-in/out exterior surfaces
+[option] Move-in/out complete
+[span] Service frequency intent
+[option] One time
+[option] One time, maybe recurring
+[option] One time, then recurring
+[option] Recurring service
+[span] Recurring cadence
+[option] Not applicable
+[option] Weekly
+[option] Every two weeks
+[option] Monthly
+[span] Flexible recurring commitment
+[option] Yes
+[span] Bedrooms
+[span] Bathrooms
+[span] Rooms to clean
+[span] Current condition
+[option] Good
+[option] Fair
+[option] Poor
+[span] Pets in the home
+[option] Yes
+[span] Pet hair level
+[option] None
+[option] Light
+[option] Noticeable
+[option] Heavy
+[summary] Complete home profile
+[span] Same service questions as the Lander 3 control
+[span] Stories
+[option] One story
+[option] Two stories
+[option] Three or more
+[span] Dust level
+[option] Low
+[option] Medium
+[option] High
+[span] People residing in home
+[span] Last professional cleaning
+[option] Within one month
+[option] 1–3 months
+[option] 3–6 months
+[option] 6–12 months
+[option] Over one year
+[option] Never
+[span] Kitchen surfaces
+[option] Clear and ready
+[option] Some items
+[option] Cluttered
+[span] Bathroom surfaces
+[option] Clear and ready
+[option] Some items
+[option] Cluttered
+[span] Cleaning scope
+[option] Entire home
+[option] Parts of home
+[span] Ceiling fan height
+[span] Extra windows
+[span] Blinds cleaning
+[option] Yes
+[span] Baseboards cleaning
+[option] Yes
+[span] Heavy cleaning required
+[option] Yes
+[span] Other surfaces accessible
+[option] Yes
+[span] Preferred appointment window
+[option] Morning
+[option] Afternoon
+[option] Either
+[span] Date flexibility
+[option] Flexible
+[option] Firm
+[span] Bathroom deep-detail count
+[span] Kitchen deep-detail area
+[option] Not selected
+[option] Standard kitchen
+[option] Large kitchen
+[option] Multiple kitchen areas
+[legend] Flooring types
+[span] Tile
+[span] Hardwood
+[span] Carpet
+[span] Vinyl
+[span] Other
+[legend] Bathroom types
+[span] Tub/shower combination
+[span] Walk-in shower
+[span] Tub only
+[span] Half bathroom
+[legend] Included in the last professional cleaning
+[span] Blinds
+[span] Baseboards
+[summary] Conditional service details
+[span] Move, appliance, partial-scope, and heavy-cleaning questions
+[span] Oven interior cleaning
+[option] Yes
+[span] Oven condition
+[option] Not applicable
+[option] Good condition
+[option] Moderate buildup
+[option] Heavy buildup
+[span] Refrigerator interior cleaning
+[option] Yes
+[span] Refrigerator readiness
+[option] Not applicable
+[option] Empty and ready
+[option] Items still inside
+[span] Why this deep clean?
+[span] Heavy-cleaning description
+[textarea] No heavy cleaning reported.
+[span] Parts-of-home description
+[span] Special instructions
+[legend] Move readiness
+[span] Surfaces are clear
+[span] Cabinets and appliances are empty
+[span] Rooms are clear
+[span] Ready for final inspection
+[span] Some belongings remain
+[legend] Areas in a partial cleaning
+[span] Floors
+[span] Kitchen
+[span] Bathrooms
+[span] Bedrooms
+[span] Living areas
+[span] Other
+[summary] Products, sensitivities, and access
+[span] Production return-mode questions without payment
+[span] Allergies or sensitivities
+[span] Products to avoid
+[legend] Production-equivalent optional add-ons
+[span] Standard deep-clean upgrade
+[span] Deeper clean option
+[span] Baseboard hand-detail
+[span] Blind hand-detail
+[span] Oven hand-wash
+[span] Refrigerator hand-wash
+[span] Oven steam clean
+[span] Refrigerator steam clean
+[span] Light soap-scum removal
+[span] Heavy soap-scum removal
+[span] Tile and grout cleaning
+[span] Maid services / extra chores
+[span] Bathroom deep detail
+[span] Kitchen deep detail
+[span] Extra interior windows
+[button] Calculate my estimate
+[p] Live WebMCP evidence
+[h2] What the agent did
+[p] Each tool call is reflected in the page and measured. Token counts are transparent JSON-size estimates, not model-provider billing totals.
+[span] tool calls
+[span] estimated I/O tokens
+[div] No tool calls yet. Human edits do not inflate the WebMCP benchmark.
+[summary] Published tool contract
+[code] get_booking_context
+[code] set_cleaning_request
+[code] calculate_quote
+[code] find_available_slots
+[code] select_tentative_slot
+[code] prepare_booking_review
+[code] request_reservation
+[code] get_booking_status
+[button] Reset experiment
+[span] Lander 5 · WebMCP Challenge experiment
+[span] Affordable Cleaning Today · Florida
