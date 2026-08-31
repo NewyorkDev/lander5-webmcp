@@ -51,6 +51,8 @@ The current Lander 3 read-only artifact completed the same substantive service q
 
 Native browser verification is now complete. Chrome 151, launched with WebMCP enabled, discovered all eight tools from the public HTTPS page with `document.modelContext.getTools()`. The test executed the shared scenario using `document.modelContext.executeTool()`, confirmed that the requested and reviewed type remained `standard`, proved the reservation tool failed before the page approval, then completed the sandbox request after one visible approval click. It did not use the benchmark bridge.
 
+Claude Library integration is also verified. The `landerfive-webmcp-health` action loaded the public page and completed its rendered-page shared-engine health path in 1.833 seconds. Preparation took 26 ms inside that run, used six calls, and retained the aligned 158-input/900-output JSON-size estimates. It then used one visible approval click and a seventh call to produce the sandbox result with no card and no production inventory. This proves the library action is runnable; it is deliberately not described as native WebMCP or model inference. The raw result is preserved in `artifacts/claude-library-health-verification.json`.
+
 ## What is not proven yet
 
 - A natural-language run from ChatGPT's in-app browser or the official inspector extension, including agent-reported tokens if exposed.

@@ -101,6 +101,7 @@ The first benchmark also exposed a methodological problem: speed comparisons are
 - No payment collection and no production side effects.
 - Automated tests for registration, validation, stale-state invalidation, approval, idempotency, and sandbox invariants.
 - A public live URL, public MIT-licensed repository, reproducible benchmark artifacts, and a Claude Library rendered-page health action.
+- A verified Claude Library health run against the public deployment: 1.833 seconds total, one visible approval click, and the expected no-card/no-inventory sandbox result.
 
 ### What we learned
 

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T06:12:55Z",
+  "system": "claude-library-landerfive-webmcp-health",
+  "url": "https://newyorkdev.github.io/lander5-webmcp/",
+  "success": true,
+  "totalRenderedPageMs": 1833,
+  "metrics": {
+    "preparationInteractionMs": 26,
+    "prepareOnlyToolCalls": 6,
+    "prepareOnlyEstimatedInputTokens": 158,
+    "prepareOnlyEstimatedOutputTokens": 900,
+    "fullToolCalls": 7,
+    "fullEstimatedInputTokens": 163,
+    "fullEstimatedOutputTokens": 985,
+    "humanApprovalClicks": 1
+  },
+  "reservation": {
+    "reference": "L5-151246",
+    "status": "sandbox_requested",
+    "cardOnFile": false,
+    "consumesProductionInventory": false
+  },
+  "claudeLibrary": {
+    "baseRevision": "9a25ab5f8b8d560101b34bf673a899fbdd70fd64",
+    "integrationState": "local uncommitted changes in a pre-existing dirty worktree",
+    "action": "landerfive-webmcp-health"
+  },
+  "methodology": "Invoked runLander5Health directly from Claude Library. The runner loaded the public rendered page, exercised the separately labeled shared-engine benchmark bridge, clicked the visible human approval control, and verified the sandbox invariants. This is Claude Library integration evidence, not a native WebMCP or AI-model inference claim."
+}
