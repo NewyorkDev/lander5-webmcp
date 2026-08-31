@@ -40,13 +40,15 @@ Open DevTools with **Option–Command–I** and use the Console to show genuine 
 await document.modelContext.getTools()
 ```
 
-The result must list all eight tools. Invoke them through the native browser API—not through `window.__LANDER5_BENCHMARK__`—and keep the human approval click visible. The native call pattern is:
+The result must list all eight tools. Invoke them through the native browser API—not through `window.__LANDER5_BENCHMARK__`—and keep the human approval click visible. Chrome 151 on this machine requires the discovered `RegisteredTool` object and JSON-string arguments:
 
 ```js
-await document.modelContext.executeTool('get_booking_context', {})
+const tools = await document.modelContext.getTools()
+const contextTool = tools.find((tool) => tool.name === 'get_booking_context')
+await document.modelContext.executeTool(contextTool, '{}')
 ```
 
-The returned value is a JSON string. Continue with the scenario and sequence in `docs/DEMO_SCRIPT.md`. The repository's `artifacts/native-webmcp-public-verification.json` preserves a successful run of this exact API path if you need to compare results while rehearsing.
+The returned value is also a JSON string. The evolving WebMCP specification describes an object input, but the verified Chrome 151 build currently rejects that form; use the call above for this recording environment. Continue with the scenario and sequence in `docs/DEMO_SCRIPT.md`. The repository's `artifacts/native-webmcp-public-verification.json` preserves a successful run of this API path if you need to compare results while rehearsing.
 
 ## What must be visible in the final cut
 
