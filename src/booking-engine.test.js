@@ -72,11 +72,11 @@ describe('WebMCP registration', () => {
     globalThis.document = { modelContext: { registerTool: (tool) => tools.push(tool) } };
     globalThis.window = {};
     const engine = createBookingEngine();
-    const registered = installWebMcp(engine);
+    const registered = await installWebMcp(engine);
     expect(registered).toHaveLength(TOOL_DEFINITIONS.length);
     expect(tools.map((tool) => tool.name)).toEqual(TOOL_DEFINITIONS.map((tool) => tool.name));
     const result = await tools[0].execute({});
-    expect(JSON.parse(result.content[0].text).mode).toBe('experimental_sandbox');
+    expect(JSON.parse(result).mode).toBe('experimental_sandbox');
     delete globalThis.document;
     delete globalThis.window;
   });

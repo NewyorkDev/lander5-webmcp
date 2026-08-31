@@ -78,28 +78,25 @@ export const TOOL_DEFINITIONS = [
   },
 ];
 
-function toolResult(value) {
-  return { content: [{ type: 'text', text: JSON.stringify(value) }] };
-}
-
-export function installWebMcp(engine) {
+export async function installWebMcp(engine) {
   const registered = [];
   const modelContext = document.modelContext;
-  for (const definition of TOOL_DEFINITIONS) {
-    const execute = async (input = {}) => toolResult(engine.run(definition.name, input));
-    if (modelContext?.registerTool) {
-      modelContext.registerTool({ ...definition, execute });
-      registered.push(definition.name);
-    }
-  }
-
-  // The benchmark invokes the exact same engine as WebMCP without pretending
-  // ordinary Playwright calls are model-originated WebMCP calls.
+  // The benchmark bridge is deliberately separate from the browser API. It is
+  // installed even in ordinary browsers so CI can exercise the shared engine.
   window.__LANDER5_BENCHMARK__ = {
     definitions: TOOL_DEFINITIONS,
     invoke: (name, input = {}) => engine.run(name, input),
     getState: engine.getState,
     reset: engine.reset,
   };
+
+  for (const definition of TOOL_DEFINITIONS) {
+    // Chrome's imperative WebMCP API expects a string result from execute.
+    const execute = async (input = {}) => JSON.stringify(engine.run(definition.name, input));
+    if (modelContext?.registerTool) {
+      await modelContext.registerTool({ ...definition, execute });
+      registered.push(definition.name);
+    }
+  }
   return registered;
 }
