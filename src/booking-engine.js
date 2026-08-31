@@ -2,13 +2,28 @@ const INITIAL_REQUEST = {
   firstName: '',
   phone: '',
   zipCode: '',
+  contactPreference: 'text',
+  discoverySource: 'google',
   cleaningType: 'standard',
   frequency: 'one-time',
   squareFeet: 1500,
   bedrooms: 3,
   bathrooms: 2,
-  condition: 'average',
+  stories: 'one',
   pets: false,
+  blinds: false,
+  flooringTypes: ['tile', 'hardwood'],
+  ceilingFanHeight: 9,
+  kitchenSurfaceReadiness: 'clear',
+  bathroomSurfaceReadiness: 'clear',
+  accessibleSurfaces: true,
+  cleaningScope: 'entire',
+  condition: 'fair',
+  dustLevel: 'medium',
+  occupants: 2,
+  lastProfessionalCleaning: '3-6-months',
+  heavyCleaning: false,
+  extraWindowCount: 5,
   addOns: [],
   selectedSlotId: null,
   notes: '',
@@ -16,7 +31,7 @@ const INITIAL_REQUEST = {
 
 const ADD_ON_PRICES = { oven: 35, fridge: 35, windows: 55, baseboards: 80 };
 const TYPE_MULTIPLIER = { standard: 1, deep: 1.55, move: 1.8 };
-const CONDITION_MULTIPLIER = { light: 0.9, average: 1, heavy: 1.3 };
+const CONDITION_MULTIPLIER = { good: 0.9, fair: 1, poor: 1.3 };
 const FREQUENCY_DISCOUNT = { 'one-time': 0, weekly: 0.18, biweekly: 0.12, monthly: 0.07 };
 
 export function initialState() {
@@ -43,6 +58,10 @@ function validateRequest(request, { contact = false } = {}) {
   assertChoice(request.cleaningType, Object.keys(TYPE_MULTIPLIER), 'cleaningType');
   assertChoice(request.frequency, Object.keys(FREQUENCY_DISCOUNT), 'frequency');
   assertChoice(request.condition, Object.keys(CONDITION_MULTIPLIER), 'condition');
+  assertChoice(request.stories, ['one', 'two', 'three-plus'], 'stories');
+  assertChoice(request.dustLevel, ['low', 'medium', 'high'], 'dustLevel');
+  assertChoice(request.cleaningScope, ['entire', 'partial'], 'cleaningScope');
+  if (!Array.isArray(request.flooringTypes) || request.flooringTypes.length === 0) throw new Error('At least one flooring type is required');
   if (contact) {
     if (!String(request.firstName || '').trim()) throw new Error('firstName is required to reserve');
     if (!/^\D*\d(?:\D*\d){9}\D*$/.test(String(request.phone || ''))) throw new Error('phone must contain 10 digits');
@@ -133,8 +152,9 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
       case 'calculate_quote': {
         validateRequest(state.request);
         const base = 72 + Number(state.request.squareFeet) * 0.075 + Number(state.request.bedrooms) * 8 + Number(state.request.bathrooms) * 14;
-        const addOns = state.request.addOns.reduce((total, item) => total + ADD_ON_PRICES[item], 0);
-        const beforeDiscount = base * TYPE_MULTIPLIER[state.request.cleaningType] * CONDITION_MULTIPLIER[state.request.condition] + addOns + (state.request.pets ? 15 : 0);
+        const addOns = state.request.addOns.reduce((total, item) => total + ADD_ON_PRICES[item], 0) + (Number(state.request.extraWindowCount) || 0) * 12;
+        const detailFactor = state.request.dustLevel === 'high' || state.request.heavyCleaning ? 1.2 : 1;
+        const beforeDiscount = base * TYPE_MULTIPLIER[state.request.cleaningType] * CONDITION_MULTIPLIER[state.request.condition] * detailFactor + addOns + (state.request.pets ? 15 : 0);
         const midpoint = Math.round(beforeDiscount * (1 - FREQUENCY_DISCOUNT[state.request.frequency]));
         state.quote = {
           low: Math.max(99, midpoint - 20),
@@ -142,6 +162,8 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
           currency: 'USD',
           estimateOnly: true,
           cardRequiredToReserve: false,
+          requestedCleaningType: state.request.cleaningType,
+          automaticTypeChange: false,
         };
         output = { quote: state.quote, nextBestAction: 'find_available_slots' };
         break;
@@ -169,7 +191,29 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
         if (!slot) throw new Error('Select a currently offered slot first');
         state.review = {
           customer: { firstName: state.request.firstName, phoneEnding: String(state.request.phone).replace(/\D/g, '').slice(-4) },
-          service: { cleaningType: state.request.cleaningType, frequency: state.request.frequency, squareFeet: Number(state.request.squareFeet), addOns: state.request.addOns },
+          service: {
+            cleaningType: state.request.cleaningType,
+            frequency: state.request.frequency,
+            squareFeet: Number(state.request.squareFeet),
+            bedrooms: Number(state.request.bedrooms),
+            bathrooms: Number(state.request.bathrooms),
+            stories: state.request.stories,
+            pets: state.request.pets,
+            blinds: state.request.blinds,
+            flooringTypes: state.request.flooringTypes,
+            ceilingFanHeight: Number(state.request.ceilingFanHeight),
+            kitchenSurfaceReadiness: state.request.kitchenSurfaceReadiness,
+            bathroomSurfaceReadiness: state.request.bathroomSurfaceReadiness,
+            accessibleSurfaces: state.request.accessibleSurfaces,
+            cleaningScope: state.request.cleaningScope,
+            condition: state.request.condition,
+            dustLevel: state.request.dustLevel,
+            occupants: Number(state.request.occupants),
+            lastProfessionalCleaning: state.request.lastProfessionalCleaning,
+            heavyCleaning: state.request.heavyCleaning,
+            extraWindowCount: Number(state.request.extraWindowCount),
+            addOns: state.request.addOns,
+          },
           slot,
           quote: state.quote,
           terms: ['This is an experimental reservation request.', 'No card is required or charged.', 'The office must confirm final availability and price.'],

@@ -5,11 +5,14 @@ import { createBookingEngine } from '../src/booking-engine.js';
 const iterations = Math.max(1, Number(process.argv.find((arg) => arg.startsWith('--iterations='))?.split('=')[1] || 10));
 const outputArg = process.argv.find((arg) => arg.startsWith('--output='))?.split('=')[1];
 const scenario = {
-  id: 'palm-beach-biweekly-standard',
+  id: 'lander3-health-standard-v1',
   request: {
-    firstName: 'Health', phone: '3475952059', zipCode: '33401', cleaningType: 'standard',
-    frequency: 'biweekly', squareFeet: 1800, bedrooms: 3, bathrooms: 2,
-    condition: 'average', pets: true, addOns: ['oven'],
+    firstName: 'Health', phone: '3475952059', zipCode: '34669', contactPreference: 'text', discoverySource: 'google',
+    cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
+    pets: false, blinds: false, flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9,
+    kitchenSurfaceReadiness: 'clear', bathroomSurfaceReadiness: 'clear', accessibleSurfaces: true,
+    cleaningScope: 'entire', condition: 'fair', dustLevel: 'medium', occupants: 2,
+    lastProfessionalCleaning: '3-6-months', heavyCleaning: false, extraWindowCount: 5, addOns: [],
   },
 };
 
@@ -28,6 +31,8 @@ for (let index = 0; index < iterations; index += 1) {
   const { slots } = engine.run('find_available_slots', { limit: 4 });
   engine.run('select_tentative_slot', { slotId: slots[0].id });
   engine.run('prepare_booking_review');
+  const preparedAt = performance.now();
+  const preparedEvents = engine.getState().events;
   engine.approve();
   const result = engine.run('request_reservation', { confirmed: true });
   const elapsedMs = performance.now() - started;
@@ -35,9 +40,13 @@ for (let index = 0; index < iterations; index += 1) {
   runs.push({
     iteration: index + 1,
     elapsedMs: Number(elapsedMs.toFixed(3)),
+    prepareOnlyElapsedMs: Number((preparedAt - started).toFixed(3)),
     toolCalls: events.length,
+    prepareOnlyToolCalls: preparedEvents.length,
     estimatedInputTokens: events.reduce((sum, event) => sum + event.inputTokensEstimated, 0),
     estimatedOutputTokens: events.reduce((sum, event) => sum + event.outputTokensEstimated, 0),
+    prepareOnlyEstimatedInputTokens: preparedEvents.reduce((sum, event) => sum + event.inputTokensEstimated, 0),
+    prepareOnlyEstimatedOutputTokens: preparedEvents.reduce((sum, event) => sum + event.outputTokensEstimated, 0),
     success: result.reservation.status === 'sandbox_requested',
     reference: result.reservation.reference,
   });
@@ -58,9 +67,14 @@ const report = {
     successful: runs.filter((run) => run.success).length,
     medianElapsedMs: percentile(runs.map((run) => run.elapsedMs), 0.5),
     p95ElapsedMs: percentile(runs.map((run) => run.elapsedMs), 0.95),
+    medianPrepareOnlyElapsedMs: percentile(runs.map((run) => run.prepareOnlyElapsedMs), 0.5),
+    p95PrepareOnlyElapsedMs: percentile(runs.map((run) => run.prepareOnlyElapsedMs), 0.95),
     medianToolCalls: percentile(runs.map((run) => run.toolCalls), 0.5),
+    medianPrepareOnlyToolCalls: percentile(runs.map((run) => run.prepareOnlyToolCalls), 0.5),
     medianEstimatedInputTokens: percentile(runs.map((run) => run.estimatedInputTokens), 0.5),
     medianEstimatedOutputTokens: percentile(runs.map((run) => run.estimatedOutputTokens), 0.5),
+    medianPrepareOnlyEstimatedInputTokens: percentile(runs.map((run) => run.prepareOnlyEstimatedInputTokens), 0.5),
+    medianPrepareOnlyEstimatedOutputTokens: percentile(runs.map((run) => run.prepareOnlyEstimatedOutputTokens), 0.5),
   },
   runs,
 };

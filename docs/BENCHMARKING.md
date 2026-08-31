@@ -6,17 +6,21 @@ This study measures whether a structured WebMCP path reduces interaction overhea
 
 - First name: Health
 - Test phone: 3475952059
-- ZIP: 33401
-- Standard cleaning, biweekly
-- 1,800 square feet, 3 bedrooms, 2 bathrooms
-- Average condition, pets, inside-oven add-on
+- ZIP: 34669
+- Standard cleaning, one time
+- 1,400 square feet, 3 bedrooms, 2 bathrooms, one story
+- No pets, no blinds, tile and hardwood, 9-foot fan height
+- Clear kitchen and bathroom surfaces; other surfaces accessible
+- Entire home, fair condition, medium dust, 2 occupants
+- Last professional cleaning 3–6 months ago; no heavy cleaning
+- Five extra windows
 - First returned appointment window
 
 ## Metrics
 
 | Metric | Lander 3 control | Lander 5 WebMCP |
 | --- | --- | --- |
-| Success | Browser reaches the expected test completion state and cleanup reports zero active test tentatives | Reservation reports `sandbox_requested`, no card, and no production inventory use |
+| Preparation success | Browser reaches a complete pre-submission state without creating intake data | Tool flow reaches the visible review with the same substantive answers |
 | Steps | Playwright interaction count, including fills, selections, and clicks | Registered tool calls; human approval is reported separately |
 | Duration | Monotonic time from page-ready to completion, plus cleanup status | Monotonic time across the domain-engine calls |
 | Tool I/O tokens | Estimate from serialized automation observations/actions when available | `ceil(JSON characters / 4)` for every tool input and output |
@@ -28,7 +32,7 @@ Never present estimated tool I/O tokens as provider-billed model tokens. Page ex
 
 The control run must use the established test phone and verify `isTest: true`. Test tentatives do not count against public availability. After the run, Claude Library must expire artifacts for the generated intake code and verify `activeCount === 0`. A cleanup failure invalidates the run.
 
-Repeated Lander 3 completion runs remain disabled until test notification suppression is verified for Slack, admin email, and customer email. Availability-only probes may run with `testMode: true` and `x-act-test-mode: 1` because that endpoint is read-only and suppresses the live-shopping notification.
+Repeated Lander 3 completion runs remain disabled until test notification suppression is verified for Slack, admin email, and customer email. The approved comparison mode fills the page and stops before submission. Availability probes run with `testMode: true` and `x-act-test-mode: 1` because that endpoint is read-only and suppresses the live-shopping notification.
 
 ## Running Lander 5
 

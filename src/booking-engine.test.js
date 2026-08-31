@@ -3,8 +3,12 @@ import { createBookingEngine } from './booking-engine.js';
 import { installWebMcp, TOOL_DEFINITIONS } from './webmcp.js';
 
 const scenario = {
-  firstName: 'Health', phone: '3475952059', zipCode: '33401', cleaningType: 'standard',
-  frequency: 'biweekly', squareFeet: 1800, bedrooms: 3, bathrooms: 2, condition: 'average', pets: true,
+  firstName: 'Health', phone: '3475952059', zipCode: '34669', contactPreference: 'text', discoverySource: 'google',
+  cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
+  condition: 'fair', dustLevel: 'medium', occupants: 2, pets: false, blinds: false,
+  flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9, kitchenSurfaceReadiness: 'clear',
+  bathroomSurfaceReadiness: 'clear', accessibleSurfaces: true, cleaningScope: 'entire',
+  lastProfessionalCleaning: '3-6-months', heavyCleaning: false, extraWindowCount: 5,
 };
 
 function reachReview(engine) {

@@ -34,21 +34,21 @@ Initial public revision: `9047e0c`
 | Measurement | Lander 3 | Lander 5 |
 | --- | ---: | ---: |
 | Current verified mode | Production-page Playwright health path | Rendered-page shared-engine health path |
-| Successful local run | Pending safe rerun | Yes |
-| Rendered-page duration | Pending | 2.2 seconds in one public-URL health run |
-| Structured tool calls | Not applicable | 7 |
-| Human approval clicks | Existing form flow; count pending | 1 |
-| Estimated tool input tokens | Pending comparable instrumentation | 70 |
-| Estimated tool output tokens | Pending comparable instrumentation | 690 |
+| Successful shared-scenario preparation | Yes | Yes |
+| Preparation interaction time | 14.695 seconds | 0.063 ms median engine time; rendered-page measurement pending updated deploy |
+| Interaction operations | 40 browser events | 6 structured tool calls |
+| Input/context footprint | 2,826-token visible-text estimate; 56,292-token full-DOM estimate | 158 estimated tool-input tokens |
+| Output footprint | Not separately available from DOM automation | 892 estimated tool-output tokens |
 | Actual model tokens | Not captured | Not captured |
 | Production slots consumed | Test rows excluded, cleanup required | 0 by design |
 | Card required | Current completion UI: yes | No |
 
-The 25-run deterministic Lander 5 engine artifact reports 25/25 success, seven calls per run, a 0.088 ms median, and a 0.312 ms p95 on the development machine. Those engine-only timings exclude rendering, networking, and model inference and must not be compared directly with Lander 3’s browser duration.
+The aligned 25-run deterministic Lander 5 engine artifact reports 25/25 success. To the same pre-submission review boundary it uses six calls, with a 0.063 ms median and 0.291 ms p95 on the development machine. The full sandbox request uses seven calls, with a 0.110 ms median and 0.353 ms p95. These engine-only timings exclude rendering, networking, and model inference and must not be compared directly with Lander 3’s browser duration.
+
+The current Lander 3 read-only artifact completed the same substantive service questionnaire in 14.695 seconds after page readiness, producing 40 captured browser events. It requested **Standard Clean** and did not silently switch to deep cleaning. The test-mode availability API returned zero openings, so it selected the site's waiting-list path and stopped before submission. No intake or appointment was created.
 
 ## What is not proven yet
 
-- A fair Lander 3 action-count and context-size artifact using the shared scenario.
 - End-to-end WebMCP runs from the official supported AI browser.
 - Comparable provider-reported model token usage for both paths.
 - Hosted-network median and p95 across at least 25 runs.
