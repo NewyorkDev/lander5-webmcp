@@ -8,6 +8,10 @@ Lander 5: Cleaning at Conversation Speed
 
 A full cleaning quote and appointment intake where WebMCP handles the form work while the customer controls the final decision.
 
+## Elevator pitch
+
+We took a real cleaning company’s production quote form—already automated for AI through traditional browser clicking and typing—and rebuilt the experience around WebMCP. Instead of repeatedly inspecting a long, changing page, an agent can use eight structured tools to complete the same full intake, calculate an estimate, find a time, and prepare a visible reservation review faster and more reliably. The customer can edit every answer and keeps the final say: no appointment request succeeds without their explicit approval.
+
 ## Links
 
 - Live app: https://newyorkdev.github.io/lander5-webmcp/
