@@ -1,15 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { createBookingEngine } from './booking-engine.js';
 import { installWebMcp, TOOL_DEFINITIONS } from './webmcp.js';
+import { FULL_INTAKE_SCENARIO } from './demo-scenario.js';
 
-const scenario = {
-  firstName: 'Health', phone: '3475952059', zipCode: '34638', contactPreference: 'text', discoverySource: 'google',
-  cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
-  condition: 'fair', dustLevel: 'medium', occupants: 2, pets: false, blinds: false,
-  flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9, kitchenSurfaceReadiness: 'clear',
-  bathroomSurfaceReadiness: 'clear', accessibleSurfaces: true, cleaningScope: 'entire',
-  lastProfessionalCleaning: '3-6-months', heavyCleaning: false, extraWindowCount: 5,
-};
+const scenario = FULL_INTAKE_SCENARIO;
 
 function reachReview(engine) {
   engine.run('set_cleaning_request', scenario);

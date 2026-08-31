@@ -1,36 +1,83 @@
 const INITIAL_REQUEST = {
   firstName: '',
+  lastName: '',
   phone: '',
+  email: '',
   zipCode: '',
+  serviceAddress: '',
+  aptSuite: '',
+  gateCode: '',
+  communityName: '',
   contactPreference: 'text',
+  availabilityTextConsent: true,
   discoverySource: 'google',
   cleaningType: 'standard',
   frequency: 'one-time',
+  serviceFrequency: 'onetime',
+  recurringFrequency: 'not-applicable',
+  recurringFlexCommitment: false,
+  ovenCleaning: false,
+  fridgeCleaning: false,
+  ovenCondition: 'not-applicable',
+  fridgeReadyState: 'not-applicable',
+  moveReadiness: [],
   squareFeet: 1500,
   bedrooms: 3,
   bathrooms: 2,
+  roomsToClean: 'all listed bedrooms and bathrooms',
   stories: 'one',
   pets: false,
+  petHair: 'none',
   blinds: false,
+  baseboards: false,
+  previousCleaningIncluded: [],
   flooringTypes: ['tile', 'hardwood'],
   ceilingFanHeight: 9,
   kitchenSurfaceReadiness: 'clear',
   bathroomSurfaceReadiness: 'clear',
   accessibleSurfaces: true,
   cleaningScope: 'entire',
+  partsToClean: [],
+  partsDescription: '',
+  deepCleanReason: '',
   condition: 'fair',
   dustLevel: 'medium',
   occupants: 2,
   lastProfessionalCleaning: '3-6-months',
   heavyCleaning: false,
+  heavyCleaningDescription: 'No heavy cleaning reported.',
   extraWindowCount: 5,
+  bathroomDeepDetailCount: 0,
+  kitchenDeepDetailArea: 'none',
   addOns: [],
+  bathroomTypes: [],
+  allergies: '',
+  avoidProducts: '',
+  specialInstructions: '',
+  preferredTimeWindow: 'morning',
+  dateFirmness: 'flexible',
   selectedSlotId: null,
   notes: '',
 };
 
-const ADD_ON_PRICES = { oven: 35, fridge: 35, windows: 55, baseboards: 80 };
-const TYPE_MULTIPLIER = { standard: 1, deep: 1.55, move: 1.8 };
+const ADD_ON_PRICES = {
+  'deep-upgrade': 80,
+  'deeper-clean': 100,
+  'baseboards-only': 40,
+  'blinds-only': 40,
+  'oven-handwash': 40,
+  'fridge-handwash': 35,
+  'oven-steam': 85,
+  'fridge-steam': 80,
+  'light-soap-scum': 50,
+  'heavy-soap-scum': 100,
+  'tile-grout': 200,
+  'maid-services': 40,
+  'bathroom-deep-detail': 40,
+  'kitchen-deep-detail': 40,
+  'extra-windows': 0,
+};
+const TYPE_MULTIPLIER = { standard: 1, deep: 1.55, 'move-exterior': 1.65, 'move-complete': 1.8 };
 const CONDITION_MULTIPLIER = { good: 0.9, fair: 1, poor: 1.3 };
 const FREQUENCY_DISCOUNT = { 'one-time': 0, weekly: 0.18, biweekly: 0.12, monthly: 0.07 };
 
@@ -64,7 +111,19 @@ function validateRequest(request, { contact = false } = {}) {
   if (!Array.isArray(request.flooringTypes) || request.flooringTypes.length === 0) throw new Error('At least one flooring type is required');
   if (contact) {
     if (!String(request.firstName || '').trim()) throw new Error('firstName is required to reserve');
+    if (!String(request.lastName || '').trim()) throw new Error('lastName is required to reserve');
     if (!/^\D*\d(?:\D*\d){9}\D*$/.test(String(request.phone || ''))) throw new Error('phone must contain 10 digits');
+    if (!/^\S+@\S+\.\S+$/.test(String(request.email || ''))) throw new Error('email must be valid');
+    if (!String(request.serviceAddress || '').trim()) throw new Error('serviceAddress is required to reserve');
+    if (!String(request.gateCode || '').trim()) throw new Error('gateCode is required; use None when there is no gate');
+    if (!Array.isArray(request.bathroomTypes) || request.bathroomTypes.length === 0) throw new Error('At least one bathroom type is required');
+    if (!String(request.allergies || '').trim()) throw new Error('allergies is required; use None when there are none');
+    if (!String(request.avoidProducts || '').trim()) throw new Error('avoidProducts is required; use None when there are none');
+    if (request.cleaningScope === 'partial' && String(request.partsDescription || '').trim().split(/\s+/).filter(Boolean).length < 5) throw new Error('partsDescription must contain at least five words for a partial cleaning');
+    if (request.heavyCleaning && String(request.heavyCleaningDescription || '').trim().split(/\s+/).filter(Boolean).length < 5) throw new Error('heavyCleaningDescription must contain at least five words when heavy cleaning is selected');
+    if (request.cleaningType.startsWith('move-') && !request.moveReadiness.length) throw new Error('moveReadiness is required for move cleaning');
+    if (request.ovenCleaning && request.ovenCondition === 'not-applicable') throw new Error('ovenCondition is required when oven cleaning is selected');
+    if (request.fridgeCleaning && request.fridgeReadyState === 'not-applicable') throw new Error('fridgeReadyState is required when refrigerator cleaning is selected');
   }
 }
 
@@ -127,7 +186,8 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
           rawCardDataAccepted: false,
           supportedZipCodes: ['33556', '34637', '34638', '34639', '34652', '34653', '34654', '34655', '34667', '34668', '34669'],
           requiredToQuote: ['zipCode', 'cleaningType', 'frequency', 'squareFeet', 'condition'],
-          requiredToReserve: ['firstName', 'phone', 'selectedSlotId', 'customer approval'],
+          requiredToReserve: ['full production-equivalent intake excluding payment', 'selectedSlotId', 'customer approval'],
+          productionQuestionParity: 'full intake questions represented; payment, billing-only, uploads, tracking, and operational fields excluded',
           nextBestAction: state.quote ? (state.request.selectedSlotId ? 'prepare_booking_review' : 'find_available_slots') : 'set_cleaning_request',
         };
         break;
@@ -145,7 +205,7 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
         state.review = null;
         state.customerApproved = false;
         state.reservation = null;
-        output = { updated: Object.keys(patch), request: state.request, nextBestAction: 'calculate_quote' };
+        output = { updated: Object.keys(patch), totalVisibleIntakeFields: Object.keys(state.request).filter((key) => key !== 'selectedSlotId').length, nextBestAction: 'calculate_quote' };
         break;
       }
 
@@ -190,32 +250,65 @@ export function createBookingEngine({ onChange = () => {}, now = () => Date.now(
         const slot = state.slots.find((candidate) => candidate.id === state.request.selectedSlotId);
         if (!slot) throw new Error('Select a currently offered slot first');
         state.review = {
-          customer: { firstName: state.request.firstName, phoneEnding: String(state.request.phone).replace(/\D/g, '').slice(-4) },
+          customer: {
+            fullName: `${state.request.firstName} ${state.request.lastName}`.trim(),
+            email: state.request.email,
+            phoneEnding: String(state.request.phone).replace(/\D/g, '').slice(-4),
+          },
           service: {
             zipCode: state.request.zipCode,
+            serviceAddress: state.request.serviceAddress,
+            aptSuite: state.request.aptSuite,
+            gateCode: state.request.gateCode,
+            communityName: state.request.communityName,
             contactPreference: state.request.contactPreference,
+            availabilityTextConsent: state.request.availabilityTextConsent,
             discoverySource: state.request.discoverySource,
             cleaningType: state.request.cleaningType,
             frequency: state.request.frequency,
+            serviceFrequency: state.request.serviceFrequency,
+            recurringFrequency: state.request.recurringFrequency,
+            recurringFlexCommitment: state.request.recurringFlexCommitment,
+            ovenCleaning: state.request.ovenCleaning,
+            fridgeCleaning: state.request.fridgeCleaning,
+            ovenCondition: state.request.ovenCondition,
+            fridgeReadyState: state.request.fridgeReadyState,
+            moveReadiness: state.request.moveReadiness,
             squareFeet: Number(state.request.squareFeet),
             bedrooms: Number(state.request.bedrooms),
             bathrooms: Number(state.request.bathrooms),
+            roomsToClean: state.request.roomsToClean,
             stories: state.request.stories,
             pets: state.request.pets,
+            petHair: state.request.petHair,
             blinds: state.request.blinds,
+            baseboards: state.request.baseboards,
+            previousCleaningIncluded: state.request.previousCleaningIncluded,
             flooringTypes: state.request.flooringTypes,
             ceilingFanHeight: Number(state.request.ceilingFanHeight),
             kitchenSurfaceReadiness: state.request.kitchenSurfaceReadiness,
             bathroomSurfaceReadiness: state.request.bathroomSurfaceReadiness,
             accessibleSurfaces: state.request.accessibleSurfaces,
             cleaningScope: state.request.cleaningScope,
+            partsToClean: state.request.partsToClean,
+            partsDescription: state.request.partsDescription,
+            deepCleanReason: state.request.deepCleanReason,
             condition: state.request.condition,
             dustLevel: state.request.dustLevel,
             occupants: Number(state.request.occupants),
             lastProfessionalCleaning: state.request.lastProfessionalCleaning,
             heavyCleaning: state.request.heavyCleaning,
+            heavyCleaningDescription: state.request.heavyCleaningDescription,
             extraWindowCount: Number(state.request.extraWindowCount),
+            bathroomDeepDetailCount: Number(state.request.bathroomDeepDetailCount),
+            kitchenDeepDetailArea: state.request.kitchenDeepDetailArea,
             addOns: state.request.addOns,
+            bathroomTypes: state.request.bathroomTypes,
+            allergies: state.request.allergies,
+            avoidProducts: state.request.avoidProducts,
+            specialInstructions: state.request.specialInstructions,
+            preferredTimeWindow: state.request.preferredTimeWindow,
+            dateFirmness: state.request.dateFirmness,
           },
           slot,
           quote: state.quote,

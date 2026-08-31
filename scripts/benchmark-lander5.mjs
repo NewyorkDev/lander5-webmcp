@@ -1,19 +1,13 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { performance } from 'node:perf_hooks';
 import { createBookingEngine } from '../src/booking-engine.js';
+import { FULL_INTAKE_SCENARIO } from '../src/demo-scenario.js';
 
 const iterations = Math.max(1, Number(process.argv.find((arg) => arg.startsWith('--iterations='))?.split('=')[1] || 10));
 const outputArg = process.argv.find((arg) => arg.startsWith('--output='))?.split('=')[1];
 const scenario = {
   id: 'lander3-health-standard-v1',
-  request: {
-    firstName: 'Health', phone: '3475952059', zipCode: '34638', contactPreference: 'text', discoverySource: 'google',
-    cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
-    pets: false, blinds: false, flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9,
-    kitchenSurfaceReadiness: 'clear', bathroomSurfaceReadiness: 'clear', accessibleSurfaces: true,
-    cleaningScope: 'entire', condition: 'fair', dustLevel: 'medium', occupants: 2,
-    lastProfessionalCleaning: '3-6-months', heavyCleaning: false, extraWindowCount: 5, addOns: [],
-  },
+  request: FULL_INTAKE_SCENARIO,
 };
 
 function percentile(values, percent) {

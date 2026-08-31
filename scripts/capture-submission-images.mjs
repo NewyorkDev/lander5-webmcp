@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawn } from 'node:child_process';
+import { FULL_INTAKE_SCENARIO } from '../src/demo-scenario.js';
 
 const chromePath = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const targetUrl = process.env.LANDER5_URL || 'https://newyorkdev.github.io/lander5-webmcp/';
@@ -97,14 +98,7 @@ try {
   await evaluate('window.scrollTo(0, 0)');
   await capture('01-lander5-agent-ready.png');
 
-  const scenario = {
-    firstName: 'Health', phone: '3475952059', zipCode: '34638', contactPreference: 'text', discoverySource: 'google',
-    cleaningType: 'standard', frequency: 'one-time', squareFeet: 1400, bedrooms: 3, bathrooms: 2, stories: 'one',
-    pets: false, blinds: false, flooringTypes: ['tile', 'hardwood'], ceilingFanHeight: 9,
-    kitchenSurfaceReadiness: 'clear', bathroomSurfaceReadiness: 'clear', accessibleSurfaces: true,
-    cleaningScope: 'entire', condition: 'fair', dustLevel: 'medium', occupants: 2,
-    lastProfessionalCleaning: '3-6-months', heavyCleaning: false, extraWindowCount: 5, addOns: [],
-  };
+  const scenario = FULL_INTAKE_SCENARIO;
   await evaluate(`(() => {
     const bridge = window.__LANDER5_BENCHMARK__;
     bridge.invoke('get_booking_context');
