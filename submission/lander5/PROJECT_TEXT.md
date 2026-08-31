@@ -18,6 +18,19 @@ We turned a real cleaning company's AI-automated form into eight WebMCP tools, m
 - Source: https://github.com/NewyorkDev/lander5-webmcp
 - Video: **TODO: public YouTube URL under three minutes**
 
+## Built with
+
+- WebMCP imperative API
+- React
+- JavaScript
+- HTML and CSS
+- Vite
+- Vitest
+- Node.js
+- GitHub Pages
+- GitHub Actions
+- Chrome's experimental WebMCP implementation for native tool verification
+
 # Project story
 
 ## Inspiration
