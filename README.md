@@ -2,6 +2,8 @@
 
 Lander 5 is a public experimental page for the 2026 WebMCP Challenge. It turns a long cleaning-intake workflow into a small set of structured site tools while keeping the quote, appointment choice, and consequential final action visible to the customer.
 
+**Live demo:** https://newyorkdev.github.io/lander5-webmcp/
+
 The project is an isolated sandbox. It does not create Affordable Cleaning Today production appointments, consume live availability, charge a card, or send customer notifications.
 
 ## Why WebMCP

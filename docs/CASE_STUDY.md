@@ -27,13 +27,15 @@ The new public sandbox publishes eight imperative WebMCP tools over one shared b
 
 ## Current evidence
 
-Revision: record the Git commit after the public repository is created.
+Public demo: https://newyorkdev.github.io/lander5-webmcp/
+
+Initial public revision: `9047e0c`
 
 | Measurement | Lander 3 | Lander 5 |
 | --- | ---: | ---: |
 | Current verified mode | Production-page Playwright health path | Rendered-page shared-engine health path |
 | Successful local run | Pending safe rerun | Yes |
-| Rendered-page duration | Pending | 1.9 seconds in one local health run |
+| Rendered-page duration | Pending | 2.2 seconds in one public-URL health run |
 | Structured tool calls | Not applicable | 7 |
 | Human approval clicks | Existing form flow; count pending | 1 |
 | Estimated tool input tokens | Pending comparable instrumentation | 70 |
