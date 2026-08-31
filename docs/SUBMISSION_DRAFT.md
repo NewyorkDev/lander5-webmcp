@@ -18,6 +18,14 @@ An agent-ready cleaning quote and reservation sandbox where WebMCP handles the f
 - Public source: https://github.com/NewyorkDev/lander5-webmcp
 - Demo video: **TODO — public YouTube URL under three minutes**
 
+### Suggested Devpost screenshots
+
+1. `docs/images/01-lander5-agent-ready.png` — opening human interface and agent-ready positioning.
+2. `docs/images/02-lander5-human-approval.png` — exact visible review, Standard Clean preservation, price, requested time, no-card policy, and human approval boundary.
+3. `docs/images/03-lander5-sandbox-result.png` — completed sandbox request with no production appointment or payment.
+
+Regenerate these from the deployed page with `npm run screenshots`. The script uses the separately labeled deterministic benchmark bridge only to stage repeatable visual states; it is not WebMCP evidence. Native WebMCP evidence remains in `artifacts/native-webmcp-public-verification.json` and must be shown in the video.
+
 ### Short overview
 
 Affordable Cleaning Today is a real cleaning company with a production quote flow called Lander 3. We had previously automated that long human form with Codex, Claude, and Playwright. It worked, but the automation had to rediscover the page, locate controls, scroll, click, type, and recover whenever the interface changed.

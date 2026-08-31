@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "benchmark": "node scripts/benchmark-lander5.mjs --iterations=25 --output=artifacts/lander5-benchmark.json",
+    "screenshots": "node scripts/capture-submission-images.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
